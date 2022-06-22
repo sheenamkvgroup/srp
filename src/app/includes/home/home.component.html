@@ -1,10 +1,9 @@
 <section class="book-move mb-5">
     <div class="container">
 
-        <form class="row g-3" (ngSubmit)="submitForm()" #contactForm="ngForm">
+        <form class="row g-3" (ngSubmit)="onSubmit()" #contactForm="ngForm">
 
             <div class="outer" *ngIf="step == 1">
-               
                 <figure class="figure text-center pt-1 pb-4 mb-1">
                     <img alt="moving" src="assets/images/family-moving.png">
                     <figcaption class="figure-caption mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -20,11 +19,11 @@
                                 <div class="col-sm-8 col-md-7">
                                     <input 
                                         type="text"
-                                        value="{{name}}"
+                                        value="{{home.name}}"
                                         name="name" 
                                         class="form-control" 
                                         id="inputName" 
-                                        [(ngModel)]="name"
+                                        [(ngModel)]="home.name"
                                         #nameInput="ngModel"
                                         placeholder="Name"
                                         required
@@ -42,10 +41,10 @@
                                     <input 
                                         type="number"
                                         name="number"
-                                        value="{{number}}"
+                                        value="{{home.number}}"
                                         class="form-control" 
                                         id="inputNumber" 
-                                        [(ngModel)]="number"
+                                        [(ngModel)]="home.number"
                                         #numberInput="ngModel"
                                         placeholder="Contact Number"
                                         required
@@ -64,10 +63,10 @@
                                     <input 
                                         type="email" 
                                         name="email"
-                                        value="{{email}}"
+                                        value="{{home.email}}"
                                         class="form-control" 
                                         id="inputEmail" 
-                                        [(ngModel)]="email"
+                                        [(ngModel)]="home.email"
                                         #emailInput="ngModel"
                                         placeholder="Email"
                                         required
@@ -85,17 +84,15 @@
                                     
                                         <input class="form-control" 
                                             type="text" 
-                                            name="date" 
-                                        
+                                            name="date"                                        
                                             id="inputDate"
-                                            [(ngModel)]="date" 
+                                            [(ngModel)]="home.date" 
                                             #dateInput="ngModel"
                                             placeholder="dd/mm/yyyy"
                                             required
                                             bsDatepicker
                                             [bsConfig]="{ isAnimated: true }"
-                                            [minDate]="minDate"
-      
+                                            [minDate]="home.minDate"     
                                             >
                                         
                                 </div>
@@ -112,11 +109,11 @@
                                     <select
                                     class="form-select"
                                     id="inputShift"
-                                    [(ngModel)]="selectedShift" 
+                                    [(ngModel)]="home.selectedShift" 
                                     name="shift" 
                                     required>
                                         <option value="undefined" disabled selected>Select</option>
-                                        <option *ngFor="let option of options">
+                                        <option *ngFor="let option of home.options">
                                           {{option.name}}
                                         </option>
                                     </select>
@@ -130,11 +127,11 @@
                                     <select
                                     class="form-select"
                                     id="inputMoving"
-                                    [(ngModel)]="selectedMoving" 
+                                    [(ngModel)]="home.selectedMoving" 
                                     name="moving" 
                                     required>
                                         <option value="undefined" disabled selected>Select</option>
-                                        <option *ngFor="let option of optionsM">
+                                        <option *ngFor="let option of home.optionsM">
                                           {{option.name}}
                                         </option>
                                     </select>
@@ -148,10 +145,10 @@
                                     <input 
                                         type="text" 
                                         name="pick"
-                                        value="{{pick}}"
+                                        value="{{home.pick}}"
                                         class="form-control" 
                                         id="inputPick" 
-                                        [(ngModel)]="pick"
+                                        [(ngModel)]="home.pick"
                                         #pickInput="ngModel"
                                         placeholder="Pickup"
                                         required
@@ -169,10 +166,10 @@
                                     <input 
                                         type="text" 
                                         name="drop"
-                                        value="{{drop}}"
+                                        value="{{home.drop}}"
                                         class="form-control" 
                                         id="inputDrop" 
-                                        [(ngModel)]="drop"
+                                        [(ngModel)]="home.drop"
                                         #dropInput="ngModel"
                                         placeholder="Drop-Off"
                                         required
@@ -205,31 +202,31 @@
                             <div class="row pt-3 px-2 mx-0">
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Full Name</h6>
-                                    <p>{{name}}</p>
+                                    <p>{{home.name}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Contact Number</h6>
-                                    <p>{{number}}</p>
+                                    <p>{{home.number}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Email Address</h6>
-                                    <p>{{email}}</p>
+                                    <p>{{home.email}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>I am shifting my</h6>
-                                    <p>{{ selectedShift }}</p>
+                                    <p>{{ home.selectedShift }}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Moving</h6>
-                                    <p>{{selectedMoving}}</p>
+                                    <p>{{home.selectedMoving}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>From</h6>
-                                    <p>{{pick}}</p>
+                                    <p>{{home.pick}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>To</h6>
-                                    <p>{{drop}}</p>
+                                    <p>{{home.drop}}</p>
                                 </div>
                             </div>
                         </div>
@@ -246,11 +243,11 @@
                                     <select
                                     class="form-select"
                                     id="NumberOfBedroom"
-                                    [(ngModel)]="selectedBedroom" 
+                                    [(ngModel)]="home.selectedBedroom" 
                                     name="bedroom" 
                                     required>
                                         <option value="undefined" disabled selected>Select</option>
-                                        <option *ngFor="let option of optionsB">
+                                        <option *ngFor="let option of home.optionsB">
                                             {{option.name}}
                                         </option>
                                     </select>
@@ -265,11 +262,11 @@
                                     <select
                                         class="form-select"
                                         id="TimeSlot"
-                                        [(ngModel)]="selectedSlot" 
+                                        [(ngModel)]="home.selectedSlot" 
                                         name="slot" 
                                         required>
                                         <option value="undefined" disabled selected>Select</option>
-                                        <option *ngFor="let option of optionsT">
+                                        <option *ngFor="let option of home.optionsT">
                                             {{option.name}}
                                         </option>
                                     </select>
@@ -283,11 +280,11 @@
                                     <select
                                         class="form-select"
                                         id="Stairs"
-                                        [(ngModel)]="selectedStairs" 
+                                        [(ngModel)]="home.selectedStairs" 
                                         name="stairs" 
                                         required>
                                         <option value="undefined" disabled selected>Select</option>
-                                        <option *ngFor="let option of optionsST">
+                                        <option *ngFor="let option of home.optionsST">
                                             {{option.name}}
                                         </option>
                                     </select>
@@ -301,11 +298,11 @@
                                     <select
                                     class="form-select"
                                     id="Lift"
-                                    [(ngModel)]="selectedLift" 
+                                    [(ngModel)]="home.selectedLift" 
                                     name="lift" 
                                     required>
                                     <option value="undefined" disabled selected>Select</option>
-                                    <option *ngFor="let option of optionsL">
+                                    <option *ngFor="let option of home.optionsL">
                                         {{option.name}}
                                     </option>
                                 </select>
@@ -319,11 +316,11 @@
                                     <select
                                     class="form-select"
                                     id="Service"
-                                    [(ngModel)]="selectedService" 
+                                    [(ngModel)]="home.selectedService" 
                                     name="service" 
                                     required>
                                     <option value="undefined" disabled selected>Select</option>
-                                    <option *ngFor="let option of optionsSE">
+                                    <option *ngFor="let option of home.optionsSE">
                                         {{option.name}}
                                     </option>
                                 </select>
@@ -337,11 +334,11 @@
                                     <select
                                     class="form-select"
                                     id="HireLabour"
-                                    [(ngModel)]="selectedLabour" 
+                                    [(ngModel)]="home.selectedLabour" 
                                     name="labour" 
                                     required>
                                     <option value="undefined" disabled selected>Select</option>
-                                    <option *ngFor="let option of optionsH">
+                                    <option *ngFor="let option of home.optionsH">
                                         {{option.name}}
                                     </option>
                                 </select>
@@ -364,14 +361,14 @@
                                                 <input 
                                                 type="text" 
                                                 name="Drawers"
-                                                value="{{qty}}"
+                                                value="{{home.qty}}"
                                                 class="form-control" 
                                                 required
                                                 readonly
                                                 >
                                                 <div class="getvalue">
-                                                    <a (click)="incrementQty()">+</a>
-                                                    <a (click)="decrementQty()">-</a>
+                                                    <a (click)="home.incrementQty()">+</a>
+                                                    <a (click)="home.decrementQty()">-</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -387,7 +384,7 @@
                                             placeholder="Message" 
                                             id="floatingTextarea"
                                             name="textarea" 
-                                            [(ngModel)]="textarea"
+                                            [(ngModel)]="home.textarea"
                                             #dropTextarea="ngModel"
                                             required>
                                             </textarea>
@@ -430,55 +427,55 @@
                             <div class="row pt-3 px-2 mx-0">
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Full Name</h6>
-                                    <p>{{name}}</p>
+                                    <p>{{home.name}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Contact Number</h6>
-                                    <p>{{number}}</p>
+                                    <p>{{home.number}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Email Address</h6>
-                                    <p>{{email}}</p>
+                                    <p>{{home.email}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>I am shifting my</h6>
-                                    <p>{{ selectedShift }}</p>
+                                    <p>{{ home.selectedShift }}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Moving</h6>
-                                    <p>{{selectedMoving}}</p>
+                                    <p>{{home.selectedMoving}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>From</h6>
-                                    <p>{{pick}}</p>
+                                    <p>{{home.pick}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>To</h6>
-                                    <p>{{drop}}</p>
+                                    <p>{{home.drop}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>No of bedrooms</h6>
-                                    <p>{{selectedBedroom}}</p>
+                                    <p>{{home.selectedBedroom}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Time Slot</h6>
-                                    <p>{{selectedSlot}}</p>
+                                    <p>{{home.selectedSlot}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Stairs</h6>
-                                    <p>{{selectedStairs}}</p>
+                                    <p>{{home.selectedStairs}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Lift</h6>
-                                    <p>{{selectedLift}}</p>
+                                    <p>{{home.selectedLift}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Service</h6>
-                                    <p>{{selectedService}}</p>
+                                    <p>{{home.selectedService}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Hire labour</h6>
-                                    <p>{{selectedLabour}}</p>
+                                    <p>{{home.selectedLabour}}</p>
                                 </div>
                             </div>
                         </div>
@@ -499,7 +496,7 @@
                                         </label>
                                         <div class="col-3">
                                             <div class="increase">
-                                               <span class="qty">{{qty}}</span>
+                                               <span class="qty">{{home.qty}}</span>
                                             </div>
                                         </div>
                                     </div>
