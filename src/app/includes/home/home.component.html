@@ -39,12 +39,12 @@
                                 <label for="inputNumber" class="col-sm-4 col-md-5 col-form-label">Contact Number</label>
                                 <div class="col-sm-8 col-md-7">
                                     <input 
-                                        type="number"
-                                        name="number"
-                                        value="{{home.number}}"
+                                        type="text"
+                                        name="phone"
+                                        value="{{home.phone}}"
                                         class="form-control" 
                                         id="inputNumber" 
-                                        [(ngModel)]="home.number"
+                                        [(ngModel)]="home.phone"
                                         #numberInput="ngModel"
                                         placeholder="Contact Number"
                                         required
@@ -110,7 +110,7 @@
                                     class="form-select"
                                     id="inputShift"
                                     [(ngModel)]="home.selectedShift" 
-                                    name="shift" 
+                                    name="selectedShift" 
                                     required>
                                         <option value="undefined" disabled selected>Select</option>
                                         <option *ngFor="let option of home.options">
@@ -128,7 +128,7 @@
                                     class="form-select"
                                     id="inputMoving"
                                     [(ngModel)]="home.selectedMoving" 
-                                    name="moving" 
+                                    name="selectedMoving" 
                                     required>
                                         <option value="undefined" disabled selected>Select</option>
                                         <option *ngFor="let option of home.optionsM">
@@ -206,7 +206,7 @@
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Contact Number</h6>
-                                    <p>{{home.number}}</p>
+                                    <p>{{home.phone}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Email Address</h6>
@@ -351,29 +351,31 @@
                             <h5 class="text-center mt-3 mb-4">Select List of Items</h5>
                             <div class="row">
                                 
-                                <div class="col-sm-12 col-md-6 col-lg-4">
+                                <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let item of home.itemsArray">
                                     <div class="row box">
                                         <label for="Drawers" class="col-9 col-form-label"> 
-                                            <img alt="Drawers" src="assets/images/singlebed.png">Drawers
+                                            <img alt="Drawers" src="{{item.icon}}">{{item.name}}
                                         </label>
                                         <div class="col-3">
                                             <div class="increase">
                                                 <input 
                                                 type="text" 
-                                                name="Drawers"
-                                                value="{{home.qty}}"
+                                                name="{{item.name}}"
+                                                value="{{item.qty}}"
                                                 class="form-control" 
                                                 required
                                                 readonly
                                                 >
                                                 <div class="getvalue">
-                                                    <a (click)="home.incrementQty()">+</a>
-                                                    <a (click)="home.decrementQty()">-</a>
+                                                    <a (click)="home.inc(item)">+</a>
+                                                    <a (click)="home.dec(item)">-</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                               
+
 
                                 <div class="col-12">
                                     <div class="box p-1">
@@ -383,8 +385,8 @@
                                             class="form-control px-2" 
                                             placeholder="Message" 
                                             id="floatingTextarea"
-                                            name="textarea" 
-                                            [(ngModel)]="home.textarea"
+                                            name="message" 
+                                            [(ngModel)]="home.message"
                                             #dropTextarea="ngModel"
                                             required>
                                             </textarea>
@@ -431,7 +433,7 @@
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Contact Number</h6>
-                                    <p>{{home.number}}</p>
+                                    <p>{{home.phone}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Email Address</h6>
@@ -483,29 +485,6 @@
                 </div>
 
                 <div class="grey-box">
-                    <div class="row m-0">
-                        <h5 class="text-center">Items</h5>
-                        <div class="sumup">
-                        
-                            <div class="row">
-                                
-                                <div class="col-sm-12 col-md-6 col-lg-4">
-                                    <div class="row box">
-                                        <label for="Drawers" class="col-9 col-form-label"> 
-                                            <img alt="Drawers" src="assets/images/singlebed.png">Drawers
-                                        </label>
-                                        <div class="col-3">
-                                            <div class="increase">
-                                               <span class="qty">{{home.qty}}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
                     <div class="table-responsive pay-table">
                         <table class="table table-borderless">
                         <thead>

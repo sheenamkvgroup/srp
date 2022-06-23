@@ -1,8 +1,12 @@
+import { ArrayType } from "@angular/compiler";
+
 export class Home {
  
+
+  title = 'appBootstrap';
   name: string;
   email: string;
-  number: Number
+  phone: string;
   date: any;
   
   pick: string;
@@ -16,10 +20,9 @@ export class Home {
   selectedLift: string;
   selectedService: string;
   selectedLabour: string;
-
+  message:string;
   minDate: Date;
-
-
+ 
   s=null;
 
   options = [
@@ -62,25 +65,28 @@ export class Home {
     { name: "option2", value: 16},
   ]
 
+  itemsArray:any=[
+    {
+        itemID: 1,
+        icon: "assets/images/singlebed.png",
+        name: "drawer",
+        qty: 0
+    },
+    {
+        itemID: 2,
+        icon: "assets/images/singlebed.png",
+        name: "sofa",
+        qty: 0
+    }
+  ];
 
-  title = 'appBootstrap';
-
-  qty=0;
-
-  // increment product qty
-  incrementQty() {
-    console.log(this.qty+1);
-    this.qty += 1;
+  inc(item){
+    console.log(item);
+    item.qty = item.qty+1;
   }
 
-  // decrement product qty
-  decrementQty() {
-    if(this.qty-1 < 1 ){
-      this.qty = 0
-      console.log('1->'+this.qty);
-    }else{
-      this.qty -= 1;
-      console.log('2->'+this.qty);
-    }
+  dec(item){
+    console.log(item);
+    item.qty = item.qty-1;
   }
 }
