@@ -86,6 +86,7 @@
                                             type="text" 
                                             name="date"                                        
                                             id="inputDate"
+                                            value="{{home.date}}"
                                             [(ngModel)]="home.date" 
                                             #dateInput="ngModel"
                                             placeholder="dd/mm/yyyy"
@@ -194,7 +195,7 @@
                                     <h5 class="mb-0">#Step 02 <br> Verification</h5>
                                 </div>
                                 <div class="down">
-                                    <h4 class="mb-0"> 19/06/2022 <br> Sunday</h4>
+                                    <h4 class="mb-0"> {{home.date}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -346,15 +347,15 @@
                             </div>
                         </div>
 
-                        <div class="sumup">
+                        <div class="sumup mt-2">
                             <h6 class="text-center">You have selected <span class="text-danger"> 4 men and 6.5 ton truck</span> at price <span class="text-danger">$100 /hr</span>  with parking space <span class="text-danger">2M X 5M</span></h6>
                             <h5 class="text-center mt-3 mb-4">Select List of Items</h5>
                             <div class="row">
                                 
                                 <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let item of home.itemsArray">
                                     <div class="row box">
-                                        <label for="Drawers" class="col-9 col-form-label"> 
-                                            <img alt="Drawers" src="{{item.icon}}">{{item.name}}
+                                        <label for="items" class="col-9 col-form-label"> 
+                                            <img alt="items" src="{{item.icon}}">{{item.name}}
                                         </label>
                                         <div class="col-3">
                                             <div class="increase">
@@ -378,7 +379,7 @@
 
 
                                 <div class="col-12">
-                                    <div class="box p-1">
+                                    <div class="textarea-box">
                                         <div class="form-floating">
                                             <textarea 
                                             type="text"
@@ -413,6 +414,14 @@
 
             <div *ngIf="step == 3" class="stepB">
 
+                <div class="current_order">
+                    <h6>Current Order</h6>
+                    <a
+                        type="submit" 
+                        class="btn theme-btn"
+                        >Pay Now</a>
+                </div>
+
                 <div class="fetch-data my-5">
                     <div class="row gx-0">
                         <div class="col-md-3 d-flex">
@@ -421,7 +430,7 @@
                                     <h5 class="mb-0">Order ID <br> #BLL659264</h5>
                                 </div>
                                 <div class="down">
-                                    <h4 class="mb-0"> 19/06/2022 <br> Sunday</h4>
+                                    <h4 class="mb-0"> {{home.date}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -485,6 +494,24 @@
                 </div>
 
                 <div class="grey-box">
+
+                    <div class="sumup mb-4">
+                       <h5 _ngcontent-ept-c70="" class="text-center mb-4">Selected Items</h5>
+                       <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let item of home.itemsArray">
+                                <div class="row box">
+                                    <label for="items" class="col-9 col-form-label"> 
+                                        <img alt="items" src="{{item.icon}}">{{item.name}}
+                                    </label>
+                                    <div class="col-3">
+                                        <h5>{{item.qty}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+
+
                     <div class="table-responsive pay-table">
                         <table class="table table-borderless">
                         <thead>
@@ -496,12 +523,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Men</td>
+                                <td><img class="me-2" src="assets/images/singlebed.png" /> Men</td>
                                 <td>04</td>
                                 <td>00</td>
                             </tr>
                             <tr>
-                                <td>Truck</td>
+                                <td><img class="me-2" src="assets/images/singlebed.png" /> Truck</td>
                                 <td>6.5 Ton</td>
                                 <td>$100 / hr</td>
                             </tr>

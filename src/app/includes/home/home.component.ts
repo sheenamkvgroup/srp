@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   onSubmit() { 
       this.step = this.step + 1;
       console.log(this.home);
+      window.scrollTo(0, 0)
 
       var fd =new FormData();
       fd.append("name",this.home.name);
@@ -44,10 +45,6 @@ export class HomeComponent implements OnInit {
         const element = itemarr[index];
         fd.append(itemIndx.name,itemIndx.qty);
       }
-     
-    
-      
-      
 
       this.ins.insertApi(fd).subscribe((data)=>{
         console.log(data);
@@ -57,6 +54,7 @@ export class HomeComponent implements OnInit {
   
     previous() {
       this.step = this.step - 1;
+      window.scrollTo(0, 0)
     }
     
 }

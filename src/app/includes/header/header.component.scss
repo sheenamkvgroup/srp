@@ -1,0 +1,11 @@
+.clone-toggler{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.clone-toggler[aria-expanded="false"] {
+    z-index: -1;
+}
