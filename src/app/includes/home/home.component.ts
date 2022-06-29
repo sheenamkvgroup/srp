@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
       fd.append("selectedLabour",this.home.selectedLabour);    
       fd.append("message",this.home.message);
       
-      var itemarr = this.home.itemsArray;
+      var itemarr = this.home.itemsArray; 
       for (let index = 0; index < itemarr.length; index++) {
         var itemIndx = itemarr[index];
         const element = itemarr[index];
