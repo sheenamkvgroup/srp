@@ -1,0 +1,559 @@
+<section class="book-move mb-5">
+    <div class="container">
+
+        <form class="row g-3" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+
+            <div class="outer" *ngIf="step == 1">
+                <figure class="figure text-center pt-1 pb-4 mb-1">
+                    <img alt="moving" src="assets/images/family-moving.png">
+                    <figcaption class="figure-caption mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </figcaption>
+                </figure>
+                
+                <div class="grey-box">
+                    <h5 class="theme-heading text-center">Book your move online</h5>
+                    <div class="row m-0">
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="row box">
+                                <label for="inputName" class="col-sm-4 col-md-5 col-form-label">Full Name</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <input 
+                                        type="text"
+                                        value="{{home.name}}"
+                                        name="name" 
+                                        class="form-control" 
+                                        id="inputName" 
+                                        [(ngModel)]="home.name"
+                                        #nameInput="ngModel"
+                                        placeholder="Name"
+                                        required
+                                        >
+                                </div>
+                                <div class="help" *ngIf="nameInput.invalid && nameInput.dirty">
+                                    Your name is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="row box">
+                                <label for="inputNumber" class="col-sm-4 col-md-5 col-form-label">Contact Number</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <input 
+                                        type="text"
+                                        name="phone"
+                                        value="{{home.phone}}"
+                                        class="form-control" 
+                                        id="inputNumber" 
+                                        [(ngModel)]="home.phone"
+                                        #numberInput="ngModel"
+                                        placeholder="Contact Number"
+                                        required
+                                        
+                                        >
+                                </div>
+                                <div class="help" *ngIf="numberInput.invalid && numberInput.dirty">
+                                    Your Number is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="row box">
+                                <label for="inputEmail" class="col-sm-4 col-md-5 col-form-label">Email Address</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <input 
+                                        type="email" 
+                                        name="email"
+                                        value="{{home.email}}"
+                                        class="form-control" 
+                                        id="inputEmail" 
+                                        [(ngModel)]="home.email"
+                                        #emailInput="ngModel"
+                                        placeholder="Email"
+                                        required
+                                        email>
+                                </div>
+                                <div class="help" *ngIf="emailInput.invalid && emailInput.dirty">
+                                    Your email is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="row box">
+                                <label for="inputDate" class="col-sm-4 col-md-5 col-form-label">Date</label>
+                                <div class="col-sm-8 col-md-7">
+                                    
+                                        <input class="form-control" 
+                                            type="text" 
+                                            name="date"                                        
+                                            id="inputDate"
+                                            [(ngModel)]="home.date" 
+                                            #dateInput="ngModel"
+                                            placeholder="dd/mm/yyyy"
+                                            required
+                                            bsDatepicker
+                                            [bsConfig]="{ isAnimated: true }"
+                                            [minDate]="home.minDate"     
+                                            >
+                                        
+                                </div>
+                                <div class="help" *ngIf="dateInput.invalid && dateInput.dirty">
+                                    Date is required
+                                </div>
+                            </div>
+                              
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="row box">
+                                <label for="inputShift" class="col-sm-4 col-md-5 col-form-label">I am shifting my</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <select
+                                    class="form-select"
+                                    id="inputShift"
+                                    [(ngModel)]="home.selectedShift" 
+                                    name="selectedShift" 
+                                    required>
+                                        <option value="undefined" disabled selected>Select</option>
+                                        <option *ngFor="let option of home.options">
+                                          {{option.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="row box">
+                                <label for="inputMoving" class="col-sm-4 col-md-5 col-form-label">Moving</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <select
+                                    class="form-select"
+                                    id="inputMoving"
+                                    [(ngModel)]="home.selectedMoving" 
+                                    name="selectedMoving" 
+                                    required>
+                                        <option value="undefined" disabled selected>Select</option>
+                                        <option *ngFor="let option of home.optionsM">
+                                          {{option.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="row box">
+                                <label for="inputPick" class="col-sm-4 col-md-5 col-form-label">From</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <input 
+                                        type="text" 
+                                        name="pick"
+                                        value="{{home.pick}}"
+                                        class="form-control" 
+                                        id="inputPick" 
+                                        [(ngModel)]="home.pick"
+                                        #pickInput="ngModel"
+                                        placeholder="Pickup"
+                                        required
+                                        >
+                                </div>
+                                <div class="help" *ngIf="pickInput.invalid && pickInput.dirty">
+                                    Field is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="row box">
+                                <label for="inputDrop" class="col-sm-4 col-md-5 col-form-label">To</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <input 
+                                        type="text" 
+                                        name="drop"
+                                        value="{{home.drop}}"
+                                        class="form-control" 
+                                        id="inputDrop" 
+                                        [(ngModel)]="home.drop"
+                                        #dropInput="ngModel"
+                                        placeholder="Drop-Off"
+                                        required
+                                        >
+                                </div>
+                                <div class="help" *ngIf="dropInput.invalid && dropInput.dirty">
+                                    Field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+            <div *ngIf="step == 2" class="stepB">
+
+                <div class="fetch-data my-5">
+                    <div class="row gx-0">
+                        <div class="col-md-3 d-flex">
+                            <div class="box">
+                                <div class="up">
+                                    <h5 class="mb-0">#Step 02 <br> Verification</h5>
+                                </div>
+                                <div class="down">
+                                    <h4 class="mb-0"> 19/06/2022 <br> Sunday</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row pt-3 px-2 mx-0">
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Full Name</h6>
+                                    <p>{{home.name}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Contact Number</h6>
+                                    <p>{{home.phone}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Email Address</h6>
+                                    <p>{{home.email}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>I am shifting my</h6>
+                                    <p>{{ home.selectedShift }}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Moving</h6>
+                                    <p>{{home.selectedMoving}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>From</h6>
+                                    <p>{{home.pick}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>To</h6>
+                                    <p>{{home.drop}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grey-box">
+                    <div class="row m-0">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                           <div class="row box">
+                                <label for="NumberOfBedroom" class="col-sm-8 col-form-label">No. Of Bedroom</label>
+                                <div class="col-sm-4">
+                                  
+                                    <select
+                                    class="form-select"
+                                    id="NumberOfBedroom"
+                                    [(ngModel)]="home.selectedBedroom" 
+                                    name="bedroom" 
+                                    required>
+                                        <option value="undefined" disabled selected>Select</option>
+                                        <option *ngFor="let option of home.optionsB">
+                                            {{option.name}}
+                                        </option>
+                                    </select>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="row box">
+                                <label for="TimeSlot" class="col-sm-8 col-form-label">Time Slot</label>
+                                <div class="col-sm-4">
+                                    <select
+                                        class="form-select"
+                                        id="TimeSlot"
+                                        [(ngModel)]="home.selectedSlot" 
+                                        name="slot" 
+                                        required>
+                                        <option value="undefined" disabled selected>Select</option>
+                                        <option *ngFor="let option of home.optionsT">
+                                            {{option.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                           <div class="row box">
+                                <label for="Stairs" class="col-sm-8 col-form-label">Stairs</label>
+                                <div class="col-sm-4">
+                                    <select
+                                        class="form-select"
+                                        id="Stairs"
+                                        [(ngModel)]="home.selectedStairs" 
+                                        name="stairs" 
+                                        required>
+                                        <option value="undefined" disabled selected>Select</option>
+                                        <option *ngFor="let option of home.optionsST">
+                                            {{option.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="row box">
+                                <label for="Lift" class="col-sm-8 col-form-label">Lift</label>
+                                <div class="col-sm-4">
+                                    <select
+                                    class="form-select"
+                                    id="Lift"
+                                    [(ngModel)]="home.selectedLift" 
+                                    name="lift" 
+                                    required>
+                                    <option value="undefined" disabled selected>Select</option>
+                                    <option *ngFor="let option of home.optionsL">
+                                        {{option.name}}
+                                    </option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                           <div class="row box">
+                                <label for="Service" class="col-sm-8 col-form-label">Service</label>
+                                <div class="col-sm-4">
+                                    <select
+                                    class="form-select"
+                                    id="Service"
+                                    [(ngModel)]="home.selectedService" 
+                                    name="service" 
+                                    required>
+                                    <option value="undefined" disabled selected>Select</option>
+                                    <option *ngFor="let option of home.optionsSE">
+                                        {{option.name}}
+                                    </option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="row box">
+                                <label for="HireLabour" class="col-sm-8 col-form-label">Hire Labour</label>
+                                <div class="col-sm-4">
+                                    <select
+                                    class="form-select"
+                                    id="HireLabour"
+                                    [(ngModel)]="home.selectedLabour" 
+                                    name="labour" 
+                                    required>
+                                    <option value="undefined" disabled selected>Select</option>
+                                    <option *ngFor="let option of home.optionsH">
+                                        {{option.name}}
+                                    </option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sumup">
+                            <h6 class="text-center">You have selected <span class="text-danger"> 4 men and 6.5 ton truck</span> at price <span class="text-danger">$100 /hr</span>  with parking space <span class="text-danger">2M X 5M</span></h6>
+                            <h5 class="text-center mt-3 mb-4">Select List of Items</h5>
+                            <div class="row">
+                                
+                                <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let item of home.itemsArray">
+                                    <div class="row box">
+                                        <label for="Drawers" class="col-9 col-form-label"> 
+                                            <img alt="Drawers" src="{{item.icon}}">{{item.name}}
+                                        </label>
+                                        <div class="col-3">
+                                            <div class="increase">
+                                                <input 
+                                                type="text" 
+                                                name="{{item.name}}"
+                                                value="{{item.qty}}"
+                                                class="form-control" 
+                                                required
+                                                readonly
+                                                >
+                                                <div class="getvalue">
+                                                    <a (click)="home.inc(item)">+</a>
+                                                    <a (click)="home.dec(item)">-</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+
+                                <div class="col-12">
+                                    <div class="box p-1">
+                                        <div class="form-floating">
+                                            <textarea 
+                                            type="text"
+                                            class="form-control px-2" 
+                                            placeholder="Message" 
+                                            id="floatingTextarea"
+                                            name="message" 
+                                            [(ngModel)]="home.message"
+                                            #dropTextarea="ngModel"
+                                            required>
+                                            </textarea>
+                                            <label for="floatingTextarea" class="px-1">Message</label>
+                                        </div>
+                                        
+                                        <div class="help" *ngIf="dropTextarea.invalid && dropTextarea.dirty">
+                                            Field is required
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+
+             
+            </div>
+
+            <div *ngIf="step == 3" class="stepB">
+
+                <div class="fetch-data my-5">
+                    <div class="row gx-0">
+                        <div class="col-md-3 d-flex">
+                            <div class="box">
+                                <div class="up">
+                                    <h5 class="mb-0">Order ID <br> #BLL659264</h5>
+                                </div>
+                                <div class="down">
+                                    <h4 class="mb-0"> 19/06/2022 <br> Sunday</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row pt-3 px-2 mx-0">
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Full Name</h6>
+                                    <p>{{home.name}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Contact Number</h6>
+                                    <p>{{home.phone}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Email Address</h6>
+                                    <p>{{home.email}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>I am shifting my</h6>
+                                    <p>{{ home.selectedShift }}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Moving</h6>
+                                    <p>{{home.selectedMoving}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>From</h6>
+                                    <p>{{home.pick}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>To</h6>
+                                    <p>{{home.drop}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>No of bedrooms</h6>
+                                    <p>{{home.selectedBedroom}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Time Slot</h6>
+                                    <p>{{home.selectedSlot}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Stairs</h6>
+                                    <p>{{home.selectedStairs}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Lift</h6>
+                                    <p>{{home.selectedLift}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Service</h6>
+                                    <p>{{home.selectedService}}</p>
+                                </div>
+                                <div class="col-sm-6 col-lg-4">
+                                    <h6>Hire labour</h6>
+                                    <p>{{home.selectedLabour}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grey-box">
+                    <div class="table-responsive pay-table">
+                        <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Advance Booking Confirmation</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Men</td>
+                                <td>04</td>
+                                <td>00</td>
+                            </tr>
+                            <tr>
+                                <td>Truck</td>
+                                <td>6.5 Ton</td>
+                                <td>$100 / hr</td>
+                            </tr>
+                           
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">Total</td>
+                                <td>$100</td>
+                            </tr>
+                        </tfoot>
+                        </table>
+                        
+                    </div>
+                    <h6 class="text-center mt-4">You have selected <span class="text-danger"> 4 men and 6.5 ton truck</span> at price <span  class="text-danger">$100 /hr</span></h6>
+                    <div class="form-text text-center">By Clicking Pay Now button I agree to Pay the Amount and Accept all terms & conditions of the Company</div>
+                </div>
+
+
+             
+            </div>
+
+            <div class="col-12 text-center mt-4">
+                
+                <a 
+                class="btn theme-btn" 
+                *ngIf="step != 1 && step !=4" 
+                (click)="previous()"
+                >Previous</a>
+
+                <button 
+                type="submit" 
+                *ngIf="step == 1"
+                class="btn theme-btn"
+                >Proceed</button>
+
+                <button 
+                type="submit" 
+                class="btn theme-btn"
+                *ngIf="step == 2"
+                >Confirm Your Move</button>
+
+                <button
+                type="submit" 
+                class="btn theme-btn"
+                [disabled]="contactForm.invalid"
+                *ngIf="step == 3"
+                >Pay Now</button>
+
+            </div>
+
+        </form>
+        
+    </div>
+</section>
