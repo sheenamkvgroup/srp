@@ -207,7 +207,7 @@
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Contact Number</h6>
-                                    <p>{{home.phone}</p>
+                                    <p>{{home.phone}}</p>
                                 </div>
                                 <div class="col-sm-6 col-lg-4">
                                     <h6>Email Address</h6> 
@@ -236,6 +236,58 @@
 
                 <div class="grey-box">
                     <div class="row m-0">
+
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="row box">
+                                 <label for="city" class="col-sm-8 col-form-label">City</label>
+                                 <div class="col-sm-4">                                  
+                                     <select class="form-select" id="city" [(ngModel)]="home.city" name="city" required>
+                                         <option value="undefined" disabled selected>Select</option>
+                                         <option *ngFor="let option of home.cityArray">
+                                             {{option.name}}
+                                         </option>
+                                     </select>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="row box">
+                                 <label for="Service" class="col-sm-8 col-form-label">Service</label>
+                                 <div class="col-sm-4">
+                                     <select
+                                     class="form-select"
+                                     id="Service"
+                                     [(ngModel)]="home.selectedService"
+                                     name="service"
+                                     required>
+                                     <option value="undefined" disabled selected>Select</option>
+                                     <option *ngFor="let option of home.optionsSE">
+                                         {{option.name}}
+                                     </option>
+                                 </select>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="col-sm-12 col-md-6 col-lg-4 visibility">
+                             <div class="row box">
+                                 <label for="HireLabour" class="col-sm-8 col-form-label">Hire Labour</label>
+                                 <div class="col-sm-4">
+                                     <select
+                                     class="form-select"
+                                     id="HireLabour"
+                                     [(ngModel)]="home.selectedLabour"
+                                     name="labour"
+                                     (change)="onChangeLabour($event)"
+                                     required>
+                                     <option value="undefined" disabled selected>Select</option>
+                                     <option *ngFor="let option of home.optionsH">
+                                         {{option.name}}
+                                     </option>
+                                 </select>
+                                 </div>
+                             </div>
+                         </div>
+
                         <div class="col-sm-12 col-md-6 col-lg-4">
                            <div class="row box">
                                 <label for="NumberOfBedroom" class="col-sm-8 col-form-label">No. Of Bedroom</label>
@@ -256,6 +308,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="row box">
                                 <label for="TimeSlot" class="col-sm-8 col-form-label">Time Slot</label>
@@ -274,6 +327,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-12 col-md-6 col-lg-4">
                            <div class="row box">
                                 <label for="Stairs" class="col-sm-8 col-form-label">Stairs</label>
@@ -292,6 +346,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="row box">
                                 <label for="Lift" class="col-sm-8 col-form-label">Lift</label>
@@ -310,45 +365,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                           <div class="row box">
-                                <label for="Service" class="col-sm-8 col-form-label">Service</label>
-                                <div class="col-sm-4">
-                                    <select
-                                    class="form-select"
-                                    id="Service"
-                                    [(ngModel)]="home.selectedService" 
-                                    name="service" 
-                                    required>
-                                    <option value="undefined" disabled selected>Select</option>
-                                    <option *ngFor="let option of home.optionsSE">
-                                        {{option.name}}
-                                    </option>
-                                </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <div class="row box">
-                                <label for="HireLabour" class="col-sm-8 col-form-label">Hire Labour</label>
-                                <div class="col-sm-4">
-                                    <select
-                                    class="form-select"
-                                    id="HireLabour"
-                                    [(ngModel)]="home.selectedLabour" 
-                                    name="labour" 
-                                    required>
-                                    <option value="undefined" disabled selected>Select</option>
-                                    <option *ngFor="let option of home.optionsH">
-                                        {{option.name}}
-                                    </option>
-                                </select>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="sumup mt-2">
-                            <h6 class="text-center">You have selected <span class="text-danger"> 4 men and 6.5 ton truck</span> at price <span class="text-danger">$100 /hr</span>  with parking space <span class="text-danger">2M X 5M</span></h6>
+                            <h6 class="text-center"><span id="appendTxt"></span></h6>
                             <h5 class="text-center mt-3 mb-4">Select List of Items</h5>
                             <div class="row">
                                 

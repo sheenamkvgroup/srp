@@ -1,14 +1,12 @@
 import { ArrayType } from "@angular/compiler";
 
 export class Home {
- 
 
   title = 'appBootstrap';
   name: string;
   email: string;
   phone: string;
-  date: any;
-  
+  date: any;  
   pick: string;
   drop: string;
   textarea: string;
@@ -22,50 +20,66 @@ export class Home {
   selectedLabour: string;
   message:string;
   minDate: Date;
- 
+  city:any;
+
   s=null;
 
   options = [
-    { name: "option1", value: 1 },
-    { name: "option2", value: 2 },
+    { name: "Home", value: "Home" },
+    { name: "Office", value: "Office" },
   ]
 
   optionsM = [
-    { name: "option1", value: 3},
-    { name: "option2", value: 4 },
+    { name: "Interstate", value: "Interstate"},
+    { name: "Local", value: "Local" },
   ]
 
   optionsB = [
-    { name: "option1", value: 5},
-    { name: "option2", value: 6},
+    { name: "1", value: "1"},
+    { name: "2", value: "2"},
+    { name: "3", value: "3"},
+    { name: "4", value: "4"},
+    { name: "5", value: "5"}
   ]
 
   optionsT = [
-    { name: "option1", value: 7},
-    { name: "option2", value: 8},
+    { name: "Morning", value: "Morning"},
+    { name: "Afternoon", value: "Afternoon"},
+    { name: "Evening", value: "Evening"},
   ]
 
   optionsST = [
-    { name: "option1", value: 9},
-    { name: "option2", value: 10},
+    { name: "Yes", value: "Yes"},
+    { name: "No", value: "No"},
   ]
 
   optionsL = [
-    { name: "option1", value: 11},
-    { name: "option2", value: 12},
+    { name: "Yes", value: "Yes"},
+    { name: "No", value: "No"},
   ]
 
   optionsSE = [
-    { name: "option1", value: 13},
-    { name: "option2", value: 14},
+    { name: "4.5 Ton", value: "4.5"},
+    { name: "6.5 Ton", value: "6.5"},
+    { name: "8 Ton", value: "8"},
+    { name: "10 Ton", value: "10"},
   ]
 
   optionsH = [
-    { name: "option1", value: 15},
-    { name: "option2", value: 16},
+    { name: "2 Men", value: "2"},
+    { name: "4 Men", value: "4"},
   ]
 
-  itemsArray:any=[
+  cityArray = [
+    { name:"Adelaide"},
+    { name:"Brisbane"},
+    { name:"Canberra"},
+    { name:"Melbourne"},
+    { name:"Perth"},
+    { name:"Sydney"}
+  ]
+
+itemsArray:any=[
     {itemID: 1,icon: "assets/images/singlebed.png",name: "single bed",qty: 0},
     {itemID: 2,icon: "assets/images/singlebed.png",name: "drawers",qty: 0},
     {itemID: 3,icon: "assets/images/singlebed.png",name: "microwave",qty: 0},
@@ -101,4 +115,5 @@ export class Home {
     console.log(item);
     item.qty = item.qty-1;
   }
+
 }
