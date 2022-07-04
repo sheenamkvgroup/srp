@@ -21,6 +21,7 @@ export class Home {
   message:string;
   minDate: Date;
   city:any;
+  myValue:any;
 
   s=null;
 
@@ -112,8 +113,11 @@ itemsArray:any=[
   }
 
   dec(item){
-    console.log(item);
-    item.qty = item.qty-1;
+    if(item.qty-1 < 1){
+    item.qty = 0;
+    }else{
+    item.qty -= 1;
+    }
   }
 
 }
