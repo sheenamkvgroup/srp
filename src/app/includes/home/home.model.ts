@@ -111,9 +111,15 @@ itemsArray:any=[
     item.qty = item.qty+1;
   }
 
+
+
   dec(item){
-    console.log(item);
-    item.qty = item.qty-1;
-  }
+    if(item.qty-1 < 1){
+    item.qty = 0;
+    }
+    else{
+    item.qty -= 1;
+    }
+    }
 
 }
