@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Home } from './home.model';
 import { InsertService } from '../../services/insert.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit {
-  visibility;
+export class HomeComponent implements OnInit {  
+  htmlMsg:any;
+  htmlPrice:any;
+  inputPrice:any;
+  myValue: any;
   step: any = 1;
+  bsValue = new Date();
   home = new Home(); //call model of home 
   constructor(private ins:InsertService){ 
     this.home.minDate = new Date();
@@ -36,6 +41,7 @@ export class HomeComponent implements OnInit {
       fd.append("selectedService",this.home.selectedService);
       fd.append("selectedLabour",this.home.selectedLabour);    
       fd.append("message",this.home.message);
+      fd.append("calculatedPrice",this.home.myValue);
 
       var itemarr = this.home.itemsArray;
       for (let index = 0; index < itemarr.length; index++) {
@@ -80,15 +86,31 @@ truckSpace:any=[{  "4.5 Ton":"7M Long & 4M Wide",
                     "8 Ton":"12M Long and 4M Wide", 
                     "10 Ton":"12M Long and 4M Wide" 
                 }];
+    onChangeService(event: any){      
+      var serv = event.target.value; 
+      this.hideOrShow();     
+    }
 
-    onChangeLabour(event: any){   
-      var service = this.home.selectedService;
-      console.log(service);
-      if(service){
-        this.visibility.style.display = 'block';
-      } 
-      var city = this.home.city;
-      var selectedLabour = event.target.value;       
+    hideOrShow() {
+      var displayClass;
+     
+      if(this.home.selectedService) {
+       displayClass = {
+         'display-div': true
+        }
+      }
+      else {
+       displayClass = {
+        'hide-div': true
+       }
+      }
+      return displayClass;
+     }
+   
+    onChangeLabour(event: any){      
+      var selectedLabour = event.target.value;   
+      var service = this.home.selectedService; 
+      var city = this.home.city;          
       var truck_space1 =  this.truckSpace[0];
       var truck_space =  truck_space1[service];
       var getprice = this.allcities[0];
@@ -102,8 +124,13 @@ truckSpace:any=[{  "4.5 Ton":"7M Long & 4M Wide",
       }
 
       var message = 'You have selected <span class="text-danger">' + selectedLabour 
-      + '</span> and <span class="text-danger">' + service  + '</span> truck at price <span class="text-danger">$' + price + ' </span>with parking space <span class="text-danger">' + truck_space + '</span>';
-
-      document.getElementById("appendTxt").innerHTML = message;              
+      + '</span> and <span class="text-danger">' + service  + '</span> truck at price <span class="text-danger">$' + price + '/hr </span>with parking space <span class="text-danger">' + truck_space + '</span>';
+     
+      document.getElementById("appendTxt").innerHTML = message;  
+      this.htmlMsg = message;
+      this.htmlPrice = price+'/hr';   //added price & message on third step 
+      this.myValue = price; //add price in input type hidden  
   }
+ 
+    
 }

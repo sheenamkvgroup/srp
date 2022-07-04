@@ -7,6 +7,6 @@ export class InsertService {
   constructor(private _http: HttpClient) { }
 
   insertApi(formdata){
-    return this._http.post('https://aboveallmystery.com/angularPostData/insertForm.php',formdata)
+    return this._http.post('https://www.cbdmovers.com.au/removalists/zoiac-online-booking/requestData.php',formdata)
   }
 }

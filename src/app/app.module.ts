@@ -10,9 +10,10 @@ import { OrderHistoryComponent } from './includes/order-history/order-history.co
 import { FormsModule } from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { InsertService } from './services/insert.service';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { InsertService } from './services/insert.service';
     BsDatepickerModule.forRoot(),
     HttpClientModule
   ],
-  providers: [InsertService],
-  bootstrap: [AppComponent]
+  providers: [InsertService,BsDatepickerConfig],
+  bootstrap: [AppComponent] 
 })
 export class AppModule { }
