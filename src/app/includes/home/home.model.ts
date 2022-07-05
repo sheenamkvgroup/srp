@@ -122,13 +122,14 @@ itemsArray:any=[
     console.log(item);
     item.qty = item.qty+1;
   }
- 
   dec(item){
     if(item.qty-1 < 1){
     item.qty = 0;
-    }else{
+    }
+    else{
     item.qty -= 1;
     }
-  }
+}
+
 
 }
