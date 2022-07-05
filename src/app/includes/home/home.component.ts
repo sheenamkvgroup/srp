@@ -11,16 +11,21 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 export class HomeComponent implements OnInit {  
   htmlMsg:any;
   htmlPrice:any;
-  inputPrice:any;
-  myValue: any;
   step: any = 1;
-  bsValue = new Date();
+  totalPrice:any;
+  myValue:any;
+  QuoteId:any;
+  stringifiedData: any;  
+  myQuoteId:any;
+
+
   home = new Home(); //call model of home 
   constructor(private ins:InsertService){ 
     this.home.minDate = new Date();
       this.home.minDate.setDate(this.home.minDate.getDate());
   } 
-  ngOnInit(){ }
+  ngOnInit(){}
+
   onSubmit() { 
       this.step = this.step + 1;
       console.log(this.home);
@@ -41,7 +46,8 @@ export class HomeComponent implements OnInit {
       fd.append("selectedService",this.home.selectedService);
       fd.append("selectedLabour",this.home.selectedLabour);    
       fd.append("message",this.home.message);
-      fd.append("calculatedPrice",this.home.myValue);
+      fd.append("totalPrice",this.myValue);
+      fd.append("city",this.home.city);
 
       var itemarr = this.home.itemsArray;
       for (let index = 0; index < itemarr.length; index++) {
@@ -51,9 +57,16 @@ export class HomeComponent implements OnInit {
       }
 
       this.ins.insertApi(fd).subscribe((data)=>{
-        console.log(data);
+       // console.log(data);
+        this.myQuoteId = data['QuoteId']; // append quote id on final page after submit information and return response
+        this.totalPrice = data['totalPrice']/2; // advance payment half
+    // Convert to JSON  
+    //this.stringifiedData = JSON.stringify(data);  
+    //console.log("With Stringify :" , this.stringifiedData);  
+   // console.log(data['QuoteId']);
+    //alert(data['QuoteId']);
+    
       });
-
     }
 
     previous() {
@@ -61,7 +74,7 @@ export class HomeComponent implements OnInit {
     }
 
 
-AdeldeTrucks:any=[ {"4.5 Ton":"150", "6.5 Ton":"130", "8 Ton":"140", "10 Ton":"150"} ];
+AdeldeTrucks:any=[ {"4.5 Ton":"110", "6.5 Ton":"130", "8 Ton":"140", "10 Ton":"150"} ];
 
 BrisTrucks:any=[ {"4.5 Ton":"150", "6.5 Ton":"160", "8 Ton":"170", "10 Ton":"170"} ];
 
@@ -118,7 +131,7 @@ truckSpace:any=[{  "4.5 Ton":"7M Long & 4M Wide",
       var myCityprice=getCityPrices[0];
       var price=myCityprice[service];
       if(selectedLabour == '2 Men'){
-        price = myCityprice[service];
+        price = myCityprice[service]; 
       }else{
         price = myCityprice[service] * 2;
       }
