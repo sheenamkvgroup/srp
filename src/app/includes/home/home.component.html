@@ -101,9 +101,8 @@
                                             placeholder="dd/mm/yyyy"
                                             required
                                             bsDatepicker
-                                            [bsValue]="bsValue"
                                             [bsConfig]="{ isAnimated: true}"
-                                            [minDate]="home.minDate"                                              
+                                            [minDate]="home.minDate"                                               
                                             >                                        
                                 </div>
                                 <div class="help" *ngIf="dateInput.invalid && dateInput.dirty">
@@ -393,7 +392,6 @@
                                                 name="{{item.name}}"
                                                 value="{{item.qty}}"
                                                 class="form-control" 
-                                                required
                                                 readonly
                                                 >
                                                 <div class="getvalue">
@@ -415,10 +413,10 @@
                                             class="form-control px-2" 
                                             placeholder="Message" 
                                             id="floatingTextarea"
-                                            name="message" 
+                                            name="message"  
                                             [(ngModel)]="home.message"
                                             #dropTextarea="ngModel"
-                                            required>
+                                            >
                                             </textarea>
                                             <label for="floatingTextarea" class="px-1">Message</label>
                                         </div>                                       
@@ -426,10 +424,18 @@
                                             Field is required
                                         </div>                        
                                     </div>
-                                </div>
-
-                                <input type="hidden" [(ngModel)]="home.myValue" name="calculatedPrice" value="{{this.myValue}}">          
-                               
+                                </div>                     
+                                 <div class="col-sm-8 col-md-7">
+                                            <input 
+                                                type="hidden"
+                                                name="totalPrice"
+                                                value="{{this.myValue}}"
+                                                class="form-control" 
+                                                id="totalPrice" 
+                                                [(ngModel)]="this.myValue"
+                                                #numberInput="ngModel"                                                                                       
+                                                >
+                                        </div> 
                             </div>
                         </div>
                     </div>
@@ -448,7 +454,9 @@
                         <div class="col-md-3 d-flex">
                             <div class="box">
                                 <div class="up">
-                                    <h5 class="mb-0">Order ID <br> #BLL659264</h5>
+                                    <h5 class="mb-0">#Order ID</h5>
+                                    <h5 class="mb-0">QOB{{this.myQuoteId}}</h5> 
+                                  
                                 </div>
                                 <div class="down">
                                     <h4 class="mb-0">{{home.date | date: 'dd/MM/yyyy'}}</h4>
@@ -580,23 +588,20 @@
                 <button 
                 type="submit" 
                 *ngIf="step == 1"
-                class="btn theme-btn"
-                [disabled]="contactForm.invalid"
+                class="btn theme-btn"                
                 >Proceed</button>
 
                 <button 
                 type="submit" 
                 class="btn theme-btn"
                 *ngIf="step == 2"
-                [disabled]="contactForm.invalid"
                 >Confirm Your Move</button>
 
-                <button
-                type="submit" 
+               <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid=QOB{{this.myQuoteId}}&amount={{this.totalPrice}}"><button
+                type="button" 
                 class="btn theme-btn"
-
                 *ngIf="step == 3"
-                >Pay Now</button>
+                >Pay Now</button></a>
 
             </div>
 

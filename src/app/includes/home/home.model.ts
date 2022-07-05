@@ -21,7 +21,9 @@ export class Home {
   message:string;
   minDate: Date;
   city:any;
+  totalPrice:any;
   myValue:any;
+  QuoteId:any;
 
   s=null;
 
@@ -103,7 +105,16 @@ itemsArray:any=[
 
     {itemID: 16,icon: "assets/images/singlebed.png",name: "dresser",qty: 0},
     {itemID: 17,icon: "assets/images/singlebed.png",name: "refrigertor",qty: 0},
-    {itemID: 18,icon: "assets/images/singlebed.png",name: "toy box",qty: 0}
+    {itemID: 18,icon: "assets/images/singlebed.png",name: "toy box",qty: 0},
+
+    {itemID: 19,icon: "assets/images/singlebed.png",name: "desk",qty: 0},
+    {itemID: 20,icon: "assets/images/singlebed.png",name: "bookcase",qty: 0},
+    {itemID: 21,icon: "assets/images/singlebed.png",name: "chairs",qty: 0},
+
+    {itemID: 22,icon: "assets/images/singlebed.png",name: "mirrors",qty: 0},
+    {itemID: 23,icon: "assets/images/singlebed.png",name: "singleseater",qty: 0},
+    {itemID: 24,icon: "assets/images/singlebed.png",name: "2seater",qty: 0},
+    {itemID: 25,icon: "assets/images/singlebed.png",name: "3seater",qty: 0}
 
   ];
 
@@ -111,7 +122,7 @@ itemsArray:any=[
     console.log(item);
     item.qty = item.qty+1;
   }
-
+ 
   dec(item){
     if(item.qty-1 < 1){
     item.qty = 0;
