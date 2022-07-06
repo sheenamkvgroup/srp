@@ -107,8 +107,34 @@ img{
 .navbar{
     padding: 0 !important;
     @include box-shadow(0, 2px, 5px, #b1b1b1b8);
+    .user-name{
+        display: flex;
+        align-items: center;
+        h6{
+            margin-right: 10px;
+        }
+    }
+    .container{
+        z-index: 2;
+        @include transition;
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: -1;
+            @include transition;
+        }
+    }
+
     .navbar-brand {
         outline: none;
+        margin-right: 0;
     }
     .navbar-toggler {
         border: 0 !important;
@@ -122,7 +148,7 @@ img{
     }
     .navbar-collapse {
         position: fixed;
-        left: -1px;
+        right: -1px;
         top: 0px;
         bottom: 0px;
         width: 0;
@@ -130,17 +156,21 @@ img{
         height: 100% !important;
         @include transition;
         @include box-shadow(0, 0px, 10px, #636363);
-        z-index: 2;
+        z-index: 1;
+        padding-top: 72px;
         .navbar-nav {
             margin: 15px 15px 15px;
             width: calc(100% - 30px);
+            .nav-item.active a{
+                color: rgb(186 32 37);
+            }
         }
     }
     
     .navbar-collapse.collapse.show, 
     .navbar-collapse .collapsing {
         width: 250px;
-        left: 0;
+        right: 0;
     }
     .mobile{
         color: $theme-color;
@@ -157,34 +187,6 @@ img{
         background: transparent;
     }
 }
-
-
-@keyframes ring {
-    0% { transform: rotate(0); }
-    1% { transform: rotate(30deg); }
-    3% { transform: rotate(-28deg); }
-    5% { transform: rotate(34deg); }
-    7% { transform: rotate(-32deg); }
-    9% { transform: rotate(30deg); }
-    11% { transform: rotate(-28deg); }
-    13% { transform: rotate(26deg); }
-    15% { transform: rotate(-24deg); }
-    17% { transform: rotate(22deg); }
-    19% { transform: rotate(-20deg); }
-    21% { transform: rotate(18deg); }
-    23% { transform: rotate(-16deg); }
-    25% { transform: rotate(14deg); }
-    27% { transform: rotate(-12deg); }
-    29% { transform: rotate(10deg); }
-    31% { transform: rotate(-8deg); }
-    33% { transform: rotate(6deg); }
-    35% { transform: rotate(-4deg); }
-    37% { transform: rotate(2deg); }
-    39% { transform: rotate(-1deg); }
-    41% { transform: rotate(1deg); }
-    43% { transform: rotate(0); }
-    100% { transform: rotate(0); }
-  }
 
 .book-move{
     figcaption {
@@ -220,14 +222,33 @@ img{
             font-size: 13.98px;
             background-position: right 0 center;
             @include rounded(0px);
+            box-shadow: none;
         }
         input{
             @include placeholder {
                 color: #ccc !important;
               }
+            &:focus+.line {
+                width: 100%;
+            }
         }
-        
+        .line {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            width: 0;
+            height: 1px;
+            background: #303136;
+            transition: all 0.3s ease-in-out;
+            margin: auto;
+        }
+
     }
+}
+
+.col-form-label + [class^=col-] {
+    position: relative;
 }
 
 .stepB{
@@ -382,6 +403,55 @@ img{
     }
 }
 
+.ngx-select__selected{
+    i.dropdown-toggle {
+        display: none;
+    }
+    .ngx-select__toggle:hover {
+        background-color: transparent !important;
+    }
+    .ngx-select__placeholder.text-muted {
+        color: #cccccc!important;
+    }
+}
+
+.ngx-select__choices{
+    &.dropdown-menu {
+        padding: 0;
+        border: 1px solid #8b8b8b26;
+    }
+    .ngx-select__item_active {
+        background-color: #e5e5e5 !important;
+        color: #212529 !important;
+        font-weight: 500 !important;
+    }
+    
+    .ngx-select__item {
+        padding: 10px 15px !important;
+        line-height: 1 !important;
+    }
+}
+
+.ngx-select:before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    width: 0;
+    height: 1px;
+    background: #000;
+    transition: all 0.3s ease-in-out;
+    margin: auto;
+}
+.ngx-select.show:before{
+    width:100%;
+}
+
+.bs-datepicker-container {
+    padding: 0 !important;
+}
+
 /**/
 @media (min-width: 768px) {
     .fetch-data{
@@ -402,10 +472,7 @@ img{
             font-size: 16px;
         }
     }
-}
-
-@media (max-width: 360.98px){
     .navbar-brand img {
-        width: 200px;
+        width: 150px;
     }
 }

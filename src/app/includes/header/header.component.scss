@@ -6,6 +6,14 @@
     bottom: 0;
     outline: none;
     box-shadow: none;
+    z-index: 1;
+}
+.clone-toggler[aria-expanded="true"] {
+    background: #0000004a;
+}
+
+.clone-toggler[aria-expanded="true"] + .navbar .container:before {
+    box-shadow: 0 0px 10px 0 #00000045;
 }
 
 .clone-toggler[aria-expanded="false"] {
