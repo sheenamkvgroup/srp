@@ -1,19 +1,19 @@
-<div class="order-hist">
+<div class="order-hist" *ngFor="let res of getHistoryData">
     <div class="container">
         <div class="row mt-5">
             <div class="col-sm-12 col-md-4 col-lg-3 d-flex">
                 <div class="box">
                     <div class="up">
-                        <h5 class="mb-0 lh-base">Order ID <br > #BLL659264</h5>
+                        <h5 class="mb-0 lh-base">Order ID <br >QOB{{res.tb_PremiumQuoteIDPK}}</h5>
                     </div>
                     <div class="down">
                         <div class="inf">
                             <h6>Name:</h6> 
-                            <span>Denver</span>
+                            <span>{{res.Name}}</span>
                         </div>
                         <div class="inf">
                             <h6>Contact Number:</h6> 
-                            <span>9876-543-210</span>
+                            <span>{{res.Mobile}}</span>
                         </div>
                     </div>
                 </div>
@@ -25,29 +25,29 @@
                         <div class="col-md-6">
                             <div class="direct">
                                 <h6>Order On:</h6>
-                                <span>June 11, 2022</span>
+                                <span>{{res.PaymentOn}}</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="direct">
-                                <h6>Order Number:</h6>
-                                <span>RP7560665862</span>
+                                <h6>Order Number:</h6> {{res.TransactionID}}
+                                <span></span>
                             </div>
                         </div>
                     </div>
                     <div class="row pb-md-5">
                         <div class="col-md-6"><div class="direct text-danger">
                             <img alt="singlebed" src="assets/images/singlebed.png"> 
-                            4 men and 6.5 ton truck
+                            {{res.Service}} and {{res.Labour}}
                         </div></div>
                         <div class="col-md-6"><div class="direct text-danger">
                             <img alt="singlebed" src="assets/images/singlebed.png"> 
-                            $100/hr
+                            {{res.AnyAdvanceAmount}}/hr
                         </div></div>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-6"><div class="direct"><h6>Order Paid</h6></div></div>
-                        <div class="col-md-6"><div class="direct text-danger">Total $100</div></div>
+                        <div class="col-md-6"><div class="direct text-danger">Total ${{res.AnyAdvanceAmount}}</div></div>
                     </div>
                 </div>
             </div>
