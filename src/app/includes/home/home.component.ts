@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Home } from './home.model';
 import { InsertService } from '../../services/insert.service';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-home',
@@ -18,8 +17,8 @@ export class HomeComponent implements OnInit {
   QuoteId:any;
   stringifiedData: any;  
   myQuoteId:any;
-
-
+  sessionValue:any;
+  sessionValueEmail:any;
   home = new Home(); //call model of home 
   constructor(private ins:InsertService){ 
     this.home.minDate = new Date();
@@ -28,9 +27,16 @@ export class HomeComponent implements OnInit {
   ngOnInit(){}
 
   onSubmit() { 
+           
+    //SESSION SET  
+    sessionStorage.setItem("username",this.home.name);
+    sessionStorage.setItem("useremail",this.home.email);
+       var getsession = sessionStorage.getItem("username");
+       var sessionValueEmail = sessionStorage.getItem("useremail");
+      console.log(sessionValueEmail);
+
       this.step = this.step + 1;
       console.log(this.home);
-
       var fd =new FormData();
       fd.append("name",this.home.name);
       fd.append("email",this.home.email);
@@ -58,9 +64,13 @@ export class HomeComponent implements OnInit {
       }
 
       this.ins.insertApi(fd).subscribe((data)=>{
+
+  
        // console.log(data);
         this.myQuoteId = data['QuoteId']; // append quote id on final page after submit information and return response
         this.totalPrice = data['totalPrice']/2; // advance payment half
+        this.sessionValue = getsession;
+        this.sessionValueEmail = sessionValueEmail;
     // Convert to JSON  
     //this.stringifiedData = JSON.stringify(data);  
     //console.log("With Stringify :" , this.stringifiedData);  
@@ -102,7 +112,7 @@ truckSpace:any=[{  "4.5 Ton":"7M Long & 4M Wide",
                 }];
     onChangeService(event: any){      
       var serv = event.target.value; 
-      alert(serv)
+     // alert(serv)
       this.hideOrShow();     
     }
 

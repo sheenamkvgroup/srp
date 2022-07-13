@@ -218,12 +218,13 @@ img{
             border: 0;
             background-color: transparent;
             text-align: left;
-            padding: 0;
+            padding: 0px 10px;
             font-size: 13.98px;
             background-position: right 0 center;
             @include rounded(0px);
             box-shadow: none;
         }
+        
         input{
             @include placeholder {
                 color: #ccc !important;

@@ -7,13 +7,12 @@ import { HeaderComponent } from './includes/header/header.component';
 import { FooterComponent } from './includes/footer/footer.component';
 import { HomeComponent } from './includes/home/home.component';
 import { OrderHistoryComponent } from './includes/order-history/order-history.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { InsertService } from './services/insert.service';
-import { NgxSelectModule } from 'ngx-select-ex';
 
 
 @NgModule({
@@ -28,12 +27,10 @@ import { NgxSelectModule } from 'ngx-select-ex';
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    ReactiveFormsModule,
     CollapseModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
-    HttpClientModule,
-    NgxSelectModule
+    HttpClientModule
   ],
   providers: [InsertService,BsDatepickerConfig],
   bootstrap: [AppComponent] 

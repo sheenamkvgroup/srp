@@ -119,7 +119,7 @@
                             <div class="row box">
                                 <label for="selectedShift" class="col-sm-4 col-md-5 col-form-label">I am shifting my</label>
                                 <div class="col-sm-8 col-md-7">
-                                    <!-- <select
+                                  <select
                                     class="form-select"
                                     id="inputShift"
                                     [(ngModel)]="home.selectedShift" 
@@ -129,20 +129,9 @@
                                         <option *ngFor="let option of home.options">
                                           {{option.name}}
                                         </option>
-                                    </select> -->
+                                    </select>
 
-                                    <ngx-select  
-                                    [formControl]="selectControl"
-                                    [items]="options"
-                                    [(ngModel)]="home.selectedShift"
-                                    name="selectedShift" 
-                                    optionValueField="value"
-                                    optionTextField="name"  
-                                    placeholder="Select"
-                                    class="form-select"
-                                    id="inputShift"
-                                    >
-                                    </ngx-select>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -150,7 +139,7 @@
                             <div class="row box">
                                 <label for="selectedMoving" class="col-sm-4 col-md-5 col-form-label">Moving</label>
                                 <div class="col-sm-8 col-md-7">
-                                    <!-- <select
+                                   <select
                                     class="form-select"
                                     id="inputMoving"
                                     [(ngModel)]="home.selectedMoving" 
@@ -160,19 +149,7 @@
                                         <option *ngFor="let option of home.optionsM">
                                           {{option.name}}
                                         </option>
-                                    </select> -->
-                                    <ngx-select  
-                                    [formControl]="selectControl"
-                                    [items]="optionsM"
-                                    [(ngModel)]="home.selectedMoving"
-                                    name="selectedMoving"
-                                    optionValueField="value"
-                                    optionTextField="name" 
-                                    placeholder="Select"
-                                    class="form-select"
-                                    id="inputMoving"
-                                    >
-                                    </ngx-select>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -280,7 +257,7 @@
                             <div class="row box">
                                  <label for="city" class="col-sm-8 col-form-label">City</label>
                                  <div class="col-sm-4">                                  
-                                     <!-- <select 
+                                     <select 
                                      class="form-select" 
                                      id="city" 
                                      [(ngModel)]="home.city" 
@@ -290,19 +267,7 @@
                                          <option *ngFor="let option of home.cityArray">
                                              {{option.name}}
                                          </option>
-                                     </select> -->
-                                     <ngx-select  
-                                        [formControl]="selectControl"
-                                        [items]="cityArray"
-                                        [(ngModel)]="home.city"
-                                        name="city"
-                                        optionValueField="value"
-                                        optionTextField="name" 
-                                        placeholder="Select"
-                                        class="form-select"
-                                        id="city" 
-                                        >
-                                        </ngx-select>
+                                     </select>                                    
                                  </div>
                              </div>
                          </div>
@@ -310,7 +275,7 @@
                             <div class="row box">
                                  <label for="Service" class="col-sm-8 col-form-label">Service</label>
                                  <div class="col-sm-4">
-                                     <!-- <select
+                                     <select
                                      class="form-select"
                                      id="Service"
                                      [(ngModel)]="home.selectedService"
@@ -321,20 +286,7 @@
                                      <option *ngFor="let option of home.optionsSE">
                                          {{option.name}}
                                      </option>
-                                 </select> -->
-                                <ngx-select  
-                                    [formControl]="selectControl"
-                                    [items]="optionsSE"
-                                    [(ngModel)]="home.selectedService"
-                                    name="service"
-                                    (change)="onChangeService($event)" 
-                                    optionValueField="value"
-                                    optionTextField="name" 
-                                    placeholder="Select"
-                                    class="form-select"
-                                    id="Service"
-                                    >
-                                </ngx-select>
+                                 </select>                                
                                  </div>
                              </div>
                          </div>
@@ -342,7 +294,7 @@
                              <div class="row box">
                                  <label for="HireLabour" class="col-sm-8 col-form-label">Hire Labour</label>
                                  <div class="col-sm-4">
-                                     <!-- <select
+                                    <select
                                      class="form-select"
                                      id="HireLabour"
                                      [(ngModel)]="home.selectedLabour"
@@ -353,20 +305,7 @@
                                      <option *ngFor="let option of home.optionsH">
                                          {{option.name}}
                                      </option>
-                                 </select> -->
-                                 <ngx-select  
-                                    [formControl]="selectControl"
-                                    [items]="optionsH"
-                                    [(ngModel)]="home.selectedLabour"
-                                    name="labour"
-                                    (change)="onChangeLabour($event)"
-                                    optionValueField="value"
-                                    optionTextField="name" 
-                                    placeholder="Select"
-                                    class="form-select"
-                                    id="HireLabour"
-                                    >
-                                </ngx-select>
+                                 </select>
                                  </div>
                              </div>
                          </div>
@@ -375,8 +314,7 @@
                            <div class="row box">
                                 <label for="NumberOfBedroom" class="col-sm-8 col-form-label">No. Of Bedroom</label>
                                 <div class="col-sm-4">
-                                  
-                                    <!-- <select
+                                  <select
                                     class="form-select"
                                     id="NumberOfBedroom"
                                     [(ngModel)]="home.selectedBedroom" 
@@ -386,20 +324,7 @@
                                         <option *ngFor="let option of home.optionsB">
                                             {{option.name}}
                                         </option>
-                                    </select> -->
-                                    <ngx-select  
-                                        [formControl]="selectControl"
-                                        [items]="optionsB"
-                                        [(ngModel)]="home.selectedBedroom"
-                                        name="bedroom"
-                                        optionValueField="value"
-                                        optionTextField="name" 
-                                        placeholder="Select"
-                                        class="form-select"
-                                        id="NumberOfBedroom"
-                                        >
-                                    </ngx-select>
-                                   
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -408,7 +333,7 @@
                             <div class="row box">
                                 <label for="TimeSlot" class="col-sm-8 col-form-label">Time Slot</label>
                                 <div class="col-sm-4">
-                                    <!-- <select
+                                    <select
                                         class="form-select"
                                         id="TimeSlot"
                                         [(ngModel)]="home.selectedSlot" 
@@ -418,19 +343,7 @@
                                         <option *ngFor="let option of home.optionsT">
                                             {{option.name}}
                                         </option>
-                                    </select> -->
-                                    <ngx-select  
-                                        [formControl]="selectControl"
-                                        [items]="optionsT"
-                                        [(ngModel)]="home.selectedSlot"
-                                        name="slot"
-                                        optionValueField="value"
-                                        optionTextField="name" 
-                                        placeholder="Select"
-                                        class="form-select"
-                                        id="TimeSlot"
-                                        >
-                                    </ngx-select>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -439,7 +352,7 @@
                            <div class="row box">
                                 <label for="Stairs" class="col-sm-8 col-form-label">Stairs</label>
                                 <div class="col-sm-4">
-                                    <!-- <select
+                                    <select
                                         class="form-select"
                                         id="Stairs"
                                         [(ngModel)]="home.selectedStairs" 
@@ -449,19 +362,7 @@
                                         <option *ngFor="let option of home.optionsST">
                                             {{option.name}}
                                         </option>
-                                    </select> -->
-                                    <ngx-select  
-                                        [formControl]="selectControl"
-                                        [items]="optionsST"
-                                        [(ngModel)]="home.selectedStairs"
-                                        name="stairs"
-                                        optionValueField="value"
-                                        optionTextField="name" 
-                                        placeholder="Select"
-                                        class="form-select"
-                                        id="Stairs"
-                                        >
-                                    </ngx-select>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -470,7 +371,7 @@
                             <div class="row box">
                                 <label for="Lift" class="col-sm-8 col-form-label">Lift</label>
                                 <div class="col-sm-4">
-                                    <!-- <select
+                                   <select
                                     class="form-select"
                                     id="Lift"
                                     [(ngModel)]="home.selectedLift" 
@@ -480,19 +381,8 @@
                                     <option *ngFor="let option of home.optionsL">
                                         {{option.name}}
                                     </option>
-                                </select> -->
-                                <ngx-select  
-                                        [formControl]="selectControl"
-                                        [items]="optionsL"
-                                        [(ngModel)]="home.selectedLift"
-                                        name="lift"
-                                        optionValueField="value"
-                                        optionTextField="name" 
-                                        placeholder="Select"
-                                        class="form-select"
-                                        id="Lift"
-                                        >
-                                    </ngx-select>
+                                </select>
+                            
                                 </div>
                             </div>
                         </div>
@@ -559,7 +449,7 @@
             <div *ngIf="step == 3" class="stepB">
                 <div class="current_order">
                     <h6>Current Order</h6>
-                    <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid={{this.myQuoteId}}&amount={{this.totalPrice}}"><button 
+                    <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid=QOB{{this.myQuoteId}}&amount={{this.totalPrice}}"><button 
                         type="button" 
                         class="btn theme-btn"
                         >Pay Now</button></a>
@@ -665,11 +555,11 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><img class="me-2" src="assets/images/singlebed.png" /> Men</td>
+                                <td><img class="me-2" src="assets/images/mover.png" /> Men</td>
                                 <td>{{home.selectedLabour}}</td>                               
                             </tr>
                             <tr>
-                                <td><img class="me-2" src="assets/images/singlebed.png" /> Truck</td>
+                                <td><img class="me-2" src="assets/images/truck.png" /> Truck</td>
                                 <td>{{home.selectedService}}</td>                               
                             </tr>
                         </tbody>
@@ -701,21 +591,20 @@
                 <button 
                 type="submit" 
                 *ngIf="step == 1"
-                class="btn theme-btn"
-             
+                class="btn theme-btn"             
+                [disabled]="contactForm.invalid"                
                 >Proceed</button>
 
                 <button 
                 type="submit" 
                 class="btn theme-btn"
                 *ngIf="step == 2"
-               
+                [disabled]="contactForm.invalid"
                 >Confirm Your Move</button>
 
-                <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid={{this.myQuoteId}}&amount={{this.totalPrice}}"><button
+                <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid=QOB{{this.myQuoteId}}&amount={{this.totalPrice}}"><button
                 type="button" 
                 class="btn theme-btn"
-
                 *ngIf="step == 3"
                 >Pay Now</button></a>
 

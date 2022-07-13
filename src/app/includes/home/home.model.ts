@@ -106,20 +106,19 @@ itemsArray:any=[
     {itemID: 15,icon: "assets/images/dryer.png",name: "clothes dryer",qty: 0},
 
     {itemID: 16,icon: "assets/images/dresser.png",name: "dresser",qty: 0},
-
     {itemID: 17,icon: "assets/images/fridge.png",name: "refrigertor",qty: 0},
     {itemID: 18,icon: "assets/images/toys.png",name: "toy box",qty: 0},
 
 
-    {itemID: 19,icon: "assets/images/single-bed.png",name: "desk",qty: 0},
-    {itemID: 20,icon: "assets/images/single-bed.png",name: "bookcase",qty: 0},
-    {itemID: 21,icon: "assets/images/single-bed.png",name: "chairs",qty: 0},
+    {itemID: 19,icon: "assets/images/desk.png",name: "desk",qty: 0},
+    {itemID: 20,icon: "assets/images/book-case.png",name: "bookcase",qty: 0},
+    {itemID: 21,icon: "assets/images/chairs.png",name: "chairs",qty: 0},
 
-    {itemID: 22,icon: "assets/images/single-bed.png",name: "mirrors",qty: 0},
+    {itemID: 22,icon: "assets/images/mirrors.png",name: "mirrors",qty: 0},
 
-    {itemID: 23,icon: "assets/images/single-bed.png",name: "single seater",qty: 0},
-    {itemID: 24,icon: "assets/images/single-bed.png",name: "2 Seater",qty: 0},
-    {itemID: 25,icon: "assets/images/single-bed.png",name: "3 Seater",qty: 0}
+    {itemID: 23,icon: "assets/images/single-seater.png",name: "single seater",qty: 0},
+    {itemID: 24,icon: "assets/images/two-seater.png",name: "2 Seater",qty: 0},
+    {itemID: 25,icon: "assets/images/three-seater.png",name: "3 Seater",qty: 0}
 
   ];
 
