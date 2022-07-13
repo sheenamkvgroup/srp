@@ -1,0 +1,61 @@
+<div class="book-move mt-5">
+    <div class="container">
+        <form #loginForm="ngForm">
+
+            <div class="row">
+                <div class="col-md-10 col-lg-7 mx-auto">
+                    <div class="grey-box">
+                        <h5 class="theme-heading text-center">Login</h5>
+                        <div class="row box">
+                            <div class="col-sm-12 position-relative">
+                                <input 
+                                    type="email" 
+                                    name="email"
+                                    value="{{login.email}}"
+                                    class="form-control" 
+                                    id="inputEmail" 
+                                    [(ngModel)]="login.email"
+                                    #emailInput="ngModel"
+                                    placeholder="Email"
+                                    required
+                                    email
+                                >
+                                <div class="line">&nbsp;</div>
+                                <div class="help" *ngIf="emailInput.invalid && emailInput.dirty">
+                                    Your email is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row box">
+                            <div class="col-sm-12 position-relative">
+                                <input 
+                                type="password"
+                                name="password" 
+                                value="{{login.password}}"
+                                class="form-control" 
+                                id="inputPassword" 
+                                [(ngModel)]="login.password"
+                                #passwordInput="ngModel"
+                                placeholder="Password"
+                                required
+                                >
+                                <div class="line">&nbsp;</div>
+                                <div class="help" *ngIf="passwordInput.invalid && passwordInput.dirty">
+                                    Password is required
+                                </div>
+                            </div>
+                        </div>
+                   
+                        <button 
+                            type="submit" 
+                            class="btn theme-btn"
+                            [disabled]="loginForm.invalid"
+                        >Submit</button>
+                       
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { InsertService } from './services/insert.service';
+import { LoginComponent } from './includes/login/login.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { InsertService } from './services/insert.service';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

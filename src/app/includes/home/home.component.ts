@@ -155,55 +155,6 @@ truckSpace:any=[{  "4.5 Ton":"7M Long & 4M Wide",
       this.htmlMsg = message;
       this.htmlPrice = price+'/hr';   //added price & message on third step 
       this.myValue = price; //add price in input type hidden  
-  }
-
-  public selectControl = new FormControl();
-
-  public options = [
-    { value: 'Home', name: 'Home' },
-    { value: 'Office', name: 'Office'},
-  ];
-  public optionsM = [
-    { value: 'Interstate', name: 'Interstate'},
-    { value: 'Local', name: 'Local'},
-  ];
-  public cityArray = [
-    { value: 'Adelaide', name: 'Adelaide'},
-    { value: 'Brisbane', name: 'Brisbane'},
-    { value: 'Canberra', name: 'Canberra'},
-    { value: 'Melbourne', name: 'Melbourne'},
-    { value: 'Perth', name: 'Perth'},
-    { value: 'Sydney', name: 'Sydney'},
-  ];
-  public optionsSE = [
-    { value: 'Interstate', name: 'Interstate'},
-    { value: 'Local', name: 'Local'},
-  ];
-  public optionsH = [
-    { name: "2 Men", value: "2"},
-    { name: "4 Men", value: "4"},
-  ]
-  public optionsB = [
-    { name: "1", value: "1"},
-    { name: "2", value: "2"},
-    { name: "3", value: "3"},
-    { name: "4", value: "4"},
-    { name: "5", value: "5"}
-  ]
-  public optionsT = [
-    { name: "Morning", value: "Morning"},
-    { name: "Afternoon", value: "Afternoon"},
-    { name: "Evening", value: "Evening"},
-  ]
-  public optionsST = [
-    { name: "Yes", value: "Yes"},
-    { name: "No", value: "No"},
-  ]
-  public optionsL = [
-    { name: "Yes", value: "Yes"},
-    { name: "No", value: "No"},
-  ]
-
-  
+  }  
 
 }

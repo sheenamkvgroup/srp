@@ -1,0 +1,13 @@
+.book-move .grey-box{
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .box:not(.sumup .box) {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+.book-move .grey-box .form-control, .book-move .grey-box .form-select {
+    padding: 0px 0px;
+}

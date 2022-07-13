@@ -1,7 +1,7 @@
 <section class="book-move pb-5">
     <div class="container">
 
-        <form class="row g-3" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <form class="g-3" (ngSubmit)="onSubmit()" #contactForm="ngForm">
 
             <div class="outer" *ngIf="step == 1">
                 <figure class="figure text-center pt-1 pb-4 mb-1">
@@ -199,7 +199,7 @@
                         </div>
                     </div>
                 </div>
-           </div>
+            </div>
 
             <div *ngIf="step == 2" class="stepB">
 
@@ -446,6 +446,7 @@
                     </div>
                 </div>             
             </div>
+            
             <div *ngIf="step == 3" class="stepB">
                 <div class="current_order">
                     <h6>Current Order</h6>
@@ -555,17 +556,17 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><img class="me-2" src="assets/images/mover.png" /> Men</td>
+                                <td><img width="30px" class="me-2" src="assets/images/mover.png" /> Men</td>
                                 <td>{{home.selectedLabour}}</td>                               
                             </tr>
                             <tr>
-                                <td><img class="me-2" src="assets/images/truck.png" /> Truck</td>
+                                <td><img width="30px" class="me-2" src="assets/images/truck.png" /> Truck</td>
                                 <td>{{home.selectedService}}</td>                               
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="2">Total Price</td>
+                                <td >Total Price</td>
                                 <td [innerHTML]="htmlPrice"></td>
                             </tr>
                         </tfoot>
@@ -602,11 +603,13 @@
                 [disabled]="contactForm.invalid"
                 >Confirm Your Move</button>
 
-                <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid=QOB{{this.myQuoteId}}&amount={{this.totalPrice}}"><button
-                type="button" 
-                class="btn theme-btn"
-                *ngIf="step == 3"
-                >Pay Now</button></a>
+                <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid=QOB{{this.myQuoteId}}&amount={{this.totalPrice}}">
+                    <button
+                    type="button" 
+                    class="btn theme-btn"
+                    *ngIf="step == 3"
+                    >Pay Now</button>
+                </a>
 
             </div>
 

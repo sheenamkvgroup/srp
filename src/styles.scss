@@ -157,7 +157,7 @@ img{
         @include transition;
         @include box-shadow(0, 0px, 10px, #636363);
         z-index: 1;
-        padding-top: 72px;
+        padding-top: 52px;
         .navbar-nav {
             margin: 15px 15px 15px;
             width: calc(100% - 30px);
@@ -177,6 +177,7 @@ img{
         font-size: 21px;
         font-weight: 600;
         text-decoration: none;
+        margin-left: 20px;
         img{
             width: 32px;
             margin-right: 5px;

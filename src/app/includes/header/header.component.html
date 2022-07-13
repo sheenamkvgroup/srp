@@ -8,7 +8,7 @@
       <div class="container bg-white">
         <div class="left-bar">
           <a class="navbar-brand" [routerLink]="['/']">
-            <img alt="logo" src="assets/images/brand-logo.png">
+            <img width ="200px" alt="logo" src="assets/images/cbd-moverslogo.svg">
           </a>
           <a href="tel: 1300223668" class="mobile">
             <img alt="mobile" src="assets/images/mobile.png"> 
@@ -28,6 +28,9 @@
           </li>
           <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
             <a class="nav-link" [routerLink]="['/order-history']" >Order History</a>
+          </li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']" >Login</a>
           </li>
         </ul>
       </div>
