@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class InsertService {
   constructor(private _http: HttpClient) { }
 
-  insertApi(formdata){
+  insertApi(formdata: FormData){
     return this._http.post('https://www.cbdmovers.com.au/removalists/zoiac-online-booking/requestData.php',formdata)
   }
 }
