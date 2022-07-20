@@ -14,6 +14,8 @@ import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker
 import { HttpClientModule } from '@angular/common/http';
 import { InsertService } from './services/insert.service';
 import { LoginComponent } from './includes/login/login.component';
+import { ProfileComponent } from './includes/profile/profile.component';
+import { ChangepasswordComponent } from './includes/changepassword/changepassword.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { LoginComponent } from './includes/login/login.component';
     FooterComponent,
     HomeComponent,
     OrderHistoryComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    ChangepasswordComponent
   ],
   imports: [
     BrowserModule,

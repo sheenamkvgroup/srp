@@ -1,0 +1,83 @@
+<div class="book-move mt-5 frt">
+    <div class="container">
+        <form #loginForm="ngForm">
+
+            <div class="row">
+                <div class="col-md-10 col-lg-7 mx-auto">
+                
+                    <div class="grey-box">
+                        <h5 class="theme-heading text-center">Profile</h5>
+                        <div class="row box">
+                            <label for="inputName" class="col-sm-4 col-md-5 col-form-label">Full Name</label>
+                            <div class="col-sm-8 col-md-7">
+                                <input 
+                                    type="text"
+                                    value="{{profile.name}}"
+                                    name="name" 
+                                    class="form-control" 
+                                    id="inputName" 
+                                    placeholder="Name"
+                                    [readonly]="true"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="row box">
+                            <label for="inputName" class="col-sm-4 col-md-5 col-form-label">Contact</label>
+                            <div class="col-sm-8 col-md-7">
+                                <input 
+                                    type="text"
+                                    name="phone"
+                                    value="{{profile.phone}}"
+                                    class="form-control" 
+                                    id="inputNumber" 
+                                    placeholder="Contact Number"
+                                    [readonly]="true"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="row box">
+                            <label for="inputName" class="col-sm-4 col-md-5 col-form-label">Email</label>
+                            <div class="col-sm-8 col-md-7">
+                                <input 
+                                    type="email" 
+                                    name="email"
+                                    value="{{profile.email}}"
+                                    class="form-control" 
+                                    id="inputEmail" 
+                                    placeholder="Email"
+                                    email
+                                    [readonly]="true"
+                                >
+                               
+                            </div>
+                        </div>
+                    
+                        <div class="row box">
+                            <label for="inputName" class="col-sm-4 col-md-5 col-form-label">Password</label>
+                            <div class="col-sm-8 col-md-7">
+                                <input 
+                                type="password"
+                                name="password" 
+                                value="{{profile.password}}"
+                                class="form-control" 
+                                id="inputPassword" 
+                                placeholder="Password"
+                                [readonly]="true"
+                                >
+                                
+                            </div>
+                        </div>
+                   
+                        <div class="route-link" >
+                            Change Password? <a [routerLink]="['/changepassword']">Click Here</a>
+                        </div> 
+     
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
