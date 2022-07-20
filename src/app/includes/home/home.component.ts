@@ -71,12 +71,6 @@ export class HomeComponent implements OnInit {
         this.totalPrice = data['totalPrice']/2; // advance payment half
         this.sessionValue = getsession;
         this.sessionValueEmail = sessionValueEmail;
-    // Convert to JSON  
-    //this.stringifiedData = JSON.stringify(data);  
-    //console.log("With Stringify :" , this.stringifiedData);  
-   // console.log(data['QuoteId']);
-    //alert(data['QuoteId']);
-    
       });
     }
 
@@ -86,17 +80,11 @@ export class HomeComponent implements OnInit {
 
 
 AdeldeTrucks:any=[ {"4.5 Ton":"110", "6.5 Ton":"130", "8 Ton":"140", "10 Ton":"150"} ];
-
 BrisTrucks:any=[ {"4.5 Ton":"150", "6.5 Ton":"160", "8 Ton":"170", "10 Ton":"170"} ];
-
 CanTrucks:any=[ {"4.5 Ton":"65", "6.5 Ton":"75", "8 Ton":"75", "10 Ton":"75"} ];
-
 MelbTrucks:any=[ {"4.5 Ton":"140", "6.5 Ton":"160", "8 Ton":"170", "10 Ton":"180"} ];
-
 PethTrucks:any=[ {"4.5 Ton":"150", "6.5 Ton":"160", "8 Ton":"170", "10 Ton":"170"} ];
-
 SydnTrucks:any=[ {"4.5 Ton":"140", "6.5 Ton":"160", "8 Ton":"170", "10 Ton":"170"} ];
-
 allcities:any=[ {   "Adelaide":this.AdeldeTrucks,
                     "Brisbane":this.BrisTrucks, 
                     "Canberra":this.CanTrucks, 

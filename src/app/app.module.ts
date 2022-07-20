@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './includes/header/header.component';
@@ -16,7 +15,6 @@ import { InsertService } from './services/insert.service';
 import { LoginComponent } from './includes/login/login.component';
 import { ProfileComponent } from './includes/profile/profile.component';
 import { ChangepasswordComponent } from './includes/changepassword/changepassword.component';
-
 
 @NgModule({
   declarations: [

@@ -7,6 +7,7 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 
+
 export class AppComponent {
   title = 'Online Booking Form';
 
@@ -29,3 +30,4 @@ export class AppComponent {
     });
   }
 }
+
