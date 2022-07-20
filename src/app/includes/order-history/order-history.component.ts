@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FetchHistoryService} from '../../services/fetch-history.service'
+import {FetchHistoryService} from '../../services/fetch-history.service';
 
 
 @Component({

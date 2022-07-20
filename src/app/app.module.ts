@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './includes/header/header.component';
@@ -14,7 +13,6 @@ import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker
 import { HttpClientModule } from '@angular/common/http';
 import { InsertService } from './services/insert.service';
 import { LoginComponent } from './includes/login/login.component';
-
 
 @NgModule({
   declarations: [
