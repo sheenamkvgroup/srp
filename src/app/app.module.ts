@@ -6,7 +6,7 @@ import { HeaderComponent } from './includes/header/header.component';
 import { FooterComponent } from './includes/footer/footer.component';
 import { HomeComponent } from './includes/home/home.component';
 import { OrderHistoryComponent } from './includes/order-history/order-history.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
@@ -15,6 +15,8 @@ import { InsertService } from './services/insert.service';
 import { LoginComponent } from './includes/login/login.component';
 import { ProfileComponent } from './includes/profile/profile.component';
 import { ChangepasswordComponent } from './includes/changepassword/changepassword.component';
+import { OrderdetailComponent } from './includes/orderdetail/orderdetail.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ChangepasswordComponent } from './includes/changepassword/changepasswor
     OrderHistoryComponent,
     LoginComponent,
     ProfileComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    OrderdetailComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { ChangepasswordComponent } from './includes/changepassword/changepasswor
     CollapseModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [InsertService,BsDatepickerConfig],
   bootstrap: [AppComponent] 

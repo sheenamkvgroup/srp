@@ -1,4 +1,4 @@
-<div class="order-hist" *ngFor="let res of getHistoryData">
+<div class="order-hist mb-5" *ngFor="let res of getHistoryData">
     <div class="container">
         <div class="row mt-5">
             <div class="col-sm-12 col-md-4 col-lg-3 d-flex">
@@ -15,7 +15,7 @@
                             <h6>Contact Number:</h6> 
                             <span>{{res.Mobile}}</span>
                         </div>
-                        <a href="#" class="btn theme-btn mt-3" >View Order</a>
+                        <a [routerLink]="['/orderdetail']" class="btn theme-btn mt-3" >View Order</a>
                     </div>
                     
                 </div>

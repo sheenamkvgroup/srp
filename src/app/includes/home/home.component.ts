@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Home } from './home.model';
 import { InsertService } from '../../services/insert.service';
-import { FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
       console.log(sessionValueEmail);
 
       this.step = this.step + 1;
+      
       console.log(this.home);
       var fd =new FormData();
       fd.append("name",this.home.name);

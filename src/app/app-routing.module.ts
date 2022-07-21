@@ -5,6 +5,7 @@ import { OrderHistoryComponent } from './includes/order-history/order-history.co
 import { LoginComponent } from './includes/login/login.component';
 import { ProfileComponent } from './includes/profile/profile.component';
 import { ChangepasswordComponent } from './includes/changepassword/changepassword.component';
+import { OrderdetailComponent } from './includes/orderdetail/orderdetail.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
   {
     path:'changepassword',
     component: ChangepasswordComponent
+  },
+
+  {
+    path:'orderdetail',
+    component: OrderdetailComponent
   }
 ];
 
