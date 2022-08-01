@@ -10,12 +10,12 @@ import {FetchHistoryService} from '../../services/fetch-history.service';
 export class OrderHistoryComponent implements OnInit {
   ngOnInit(): void {
   }
-  title = 'bookingform';
+  title = 'Order History';
   getHistoryData:any;
   tb_PremiumQuoteIDPK:any;
   constructor(private getData:FetchHistoryService) {
     getData.getHistoryData().subscribe((data)=>{
-      console.log(data);
+      console.log("Response"+data);
       this.getHistoryData = data;
     });
   }

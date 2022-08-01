@@ -65,9 +65,8 @@ export class HomeComponent implements OnInit {
       }
 
       this.ins.insertApi(fd).subscribe((data)=>{
-
-  
-       // console.log(data);
+        
+        console.log(data);
         this.myQuoteId = data['QuoteId']; // append quote id on final page after submit information and return response
         this.totalPrice = data['totalPrice']/2; // advance payment half
         this.sessionValue = getsession;

@@ -3,9 +3,9 @@ import { FormControl } from "@angular/forms";
 
 export class Changepassword {
 
-  title = 'appBootstrap';
+  title = 'Update Password';
   email: string;
+  newpassword: any;
   password: any;
-  passwordnew: any;
 
 }

@@ -16,7 +16,7 @@ import { LoginComponent } from './includes/login/login.component';
 import { ProfileComponent } from './includes/profile/profile.component';
 import { ChangepasswordComponent } from './includes/changepassword/changepassword.component';
 import { OrderdetailComponent } from './includes/orderdetail/orderdetail.component';
-
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { OrderdetailComponent } from './includes/orderdetail/orderdetail.compone
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [InsertService,BsDatepickerConfig],
+  providers: [InsertService,BsDatepickerConfig,LoginService],
   bootstrap: [AppComponent] 
 })
 export class AppModule { }

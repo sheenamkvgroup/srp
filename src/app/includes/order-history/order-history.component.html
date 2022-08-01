@@ -1,59 +1,63 @@
 <div class="order-hist mb-5" *ngFor="let res of getHistoryData">
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-sm-12 col-md-4 col-lg-3 d-flex">
-                <div class="box">
-                    <div class="up">
-                        <h5 class="mb-0 lh-base">Order ID <br >QOB{{res.tb_PremiumQuoteIDPK}}</h5>
-                    </div>
-                    <div class="down">
-                        <div class="inf">
-                            <h6>Name:</h6> 
-                            <span>{{res.Name}}</span>
+    <div *ngIf="!res?.length; else elseBlock" >
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-sm-12 col-md-4 col-lg-3 d-flex">
+                    <div class="box">
+                        <div class="up">
+                            <h5 class="mb-0 lh-base">Order ID <br >QOB{{res.tb_PremiumQuoteIDPK}}</h5>
                         </div>
-                        <div class="inf">
-                            <h6>Contact Number:</h6> 
-                            <span>{{res.Mobile}}</span>
-                        </div>
-                        <a [routerLink]="['/orderdetail']" class="btn theme-btn mt-3" >View Order</a>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-8 col-lg-9 mt-3 mt-md-0">
-                <div class="box detailz">
-                    <h5 class="info-head mb-0">Orders</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="direct">
-                                <h6>Order On:</h6>
-                                <span>{{res.PaymentOn}}</span>
+                        <div class="down">
+                            <div class="inf">
+                                <h6>Name:</h6> 
+                                <span>{{res.Name}}</span>
                             </div>
+                            <div class="inf">
+                                <h6>Contact Number:</h6> 
+                                <span>{{res.Mobile}}</span>
+                            </div>                        
+                     
+                            <a [routerLink]="['/orderdetail', 'QOB'+res.tb_PremiumQuoteIDPK]" class="btn theme-btn mt-3">View Order</a>
                         </div>
-                        <div class="col-md-6">
-                            <div class="direct">
-                                <h6>Order Number:</h6> {{res.TransactionID}}
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pb-md-5">
-                        <div class="col-md-6"><div class="direct text-danger">
-                            <img width="30px" class="me-2" src="assets/images/mover.png" /> 
-                            {{res.Service}} and {{res.Labour}}
-                        </div></div>
-                        <div class="col-md-6"><div class="direct text-danger">
-                            <img width="30px" class="me-2" src="assets/images/truck.png" />
-                            {{res.AnyAdvanceAmount}}/hr
-                        </div></div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-md-6"><div class="direct"><h6>Order Paid</h6></div></div>
-                        <div class="col-md-6"><div class="direct text-danger">Total ${{res.AnyAdvanceAmount}}</div></div>
+                        
                     </div>
                 </div>
+                <div class="col-sm-12 col-md-8 col-lg-9 mt-3 mt-md-0">
+                    <div class="box detailz">
+                        <h5 class="info-head mb-0">Orders</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="direct">
+                                    <h6>Order On:</h6>
+                                    <span>{{res.PaymentOn}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="direct">
+                                    <h6>Order Number:</h6> {{res.TransactionID}}
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pb-md-5">
+                            <div class="col-md-6"><div class="direct text-danger">
+                                <img width="30px" class="me-2" src="assets/images/mover.png" /> 
+                                {{res.Service}} and {{res.Labour}}
+                            </div></div>
+                            <div class="col-md-6"><div class="direct text-danger">
+                                <img width="30px" class="me-2" src="assets/images/truck.png" />
+                                {{res.AnyAdvanceAmount}}/hr
+                            </div></div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-md-6"><div class="direct"><h6>Order Paid</h6></div></div>
+                            <div class="col-md-6"><div class="direct text-danger">Total ${{res.AnyAdvanceAmount}}</div></div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        
         </div>
-       
     </div>
+    <ng-template #elseBlock><h3 style="text-align: center;margin-top: 50px;">No History Found!</h3></ng-template>
 </div>

@@ -11,8 +11,7 @@ import { Router, NavigationStart } from '@angular/router';
 export class AppComponent {
   title = 'Online Booking Form';
 
-  showHead: boolean = false;
-
+  showHead: boolean = false;  
   ngOnInit() {
   }
 
@@ -27,7 +26,7 @@ export class AppComponent {
           this.showHead = true;
         }
       }
-    });
+    });   
   }
 }
 
