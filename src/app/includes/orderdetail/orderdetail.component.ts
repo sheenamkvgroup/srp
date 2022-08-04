@@ -35,33 +35,35 @@ Local_Interstate:any;
 Service:any;
 Labour:any;
 OtherItems:any;
+name:any;
+strIntoObj2: any;
+ngOnInit(): void {} 
 
-
-
-
-
-  ngOnInit(): void {
-  } 
-
-  constructor(private getData:OrderDetailService) {    
-    var id = '1';
+constructor(private getData:OrderDetailService) {    
+  
     getData.getOrderDetail().subscribe((data)=>{
      
-   var myObject = JSON.stringify(data);
-    console.log("stringfyData-"+myObject );   
+   var myObject =JSON.stringify(data);
+   //console.log("stringfydata-"+myObject );   
     var str = myObject; // your response in a string
     this.strIntoObj = JSON.parse(str);
-    var user = this.strIntoObj[0];   
-    var itemarr = user.OtherItems;
-      for (let index = 0; index < itemarr.length; index++) {
-        var itemIndx = itemarr[index];
-        var element = itemarr[index];
-        //var itemName = itemIndx.name
-        //var itemQty = itemIndx.qty;
-      }
-    console.log(itemIndx); 
-    console.log(element);
+    var user = this.strIntoObj[0];  
+    //console.log(user); 
+    var itemarr = JSON.stringify(user.OtherItems);  
+    var strIntoObj2 = JSON.parse(itemarr);
+
+    //var artikel = unserialize('a:1:{i:0;s:44:"{"name":"Mario","pw":"3214","email":"mo@mo"}";}');
+
+
+    console.log(strIntoObj2); 
+    //console.log('string-'+itemarr);  
+    //for (let index = 0; index < data.length; index++) {
+    //var itemIndx = itemarr[index];
+   // const obj = JSON.parse(data);
+    
+ 
+    //}
+    //console.log(itemarrrr.name); 
   });
 }
-
 }
