@@ -1,9 +1,7 @@
 <header>
-
   <button class="navbar-toggler clone-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"  aria-expanded="false" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
-
     <nav class="navbar navbar-light bg-white">
       <div class="container bg-white">
         <div class="left-bar">
@@ -29,14 +27,15 @@
           <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" *ngIf="this.sessionValueName">
             <a class="nav-link" [routerLink]="['/order-history']" >Order History</a>
           </li>
-         
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">           
+            <a class="nav-link" [routerLink]="['/resetpassword']" *ngIf="!sessionValueName">Reset Password</a>
+          </li>
            
           <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item">           
           
               <a class="nav-link" [routerLink]="['/login']" *ngIf="sessionValueName" (click)="logout()">Logout</a>
               <a class="nav-link" [routerLink]="['/login']" *ngIf="!sessionValueName">Login</a>
-          </li>
-
+          </li> 
           <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" *ngIf="this.sessionValueName">
             <a class="nav-link" [routerLink]="['/profile']" >Profile</a>
           </li>

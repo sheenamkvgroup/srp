@@ -17,6 +17,8 @@ import { ProfileComponent } from './includes/profile/profile.component';
 import { ChangepasswordComponent } from './includes/changepassword/changepassword.component';
 import { OrderdetailComponent } from './includes/orderdetail/orderdetail.component';
 import { LoginService } from './services/login.service';
+import { ResetpasswordComponent } from './includes/resetpassword/resetpassword.component';
+import { NgxSelectModule } from 'ngx-select-ex';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { LoginService } from './services/login.service';
     ProfileComponent,
     ChangepasswordComponent,
     OrderdetailComponent,
+    ResetpasswordComponent
 
   ],
   imports: [
@@ -39,7 +42,8 @@ import { LoginService } from './services/login.service';
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSelectModule
   ],
   providers: [InsertService,BsDatepickerConfig,LoginService],
   bootstrap: [AppComponent] 

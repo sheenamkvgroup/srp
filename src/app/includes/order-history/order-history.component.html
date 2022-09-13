@@ -4,7 +4,7 @@
             <div class="row mt-5">
                 <div class="col-sm-12 col-md-4 col-lg-3 d-flex">
                     <div class="box">
-                        <div class="up">
+                        <div class="up">   
                             <h5 class="mb-0 lh-base">Order ID <br >QOB{{res.tb_PremiumQuoteIDPK}}</h5>
                         </div>
                         <div class="down">
@@ -29,12 +29,17 @@
                             <div class="col-md-6">
                                 <div class="direct">
                                     <h6>Order On:</h6>
-                                    <span>{{res.PaymentOn}}</span>
+                                    <ng-container *ngIf="res.PaymentOn;else noorderon"> <span>{{res.PaymentOn}}</span></ng-container>
+                                    <ng-template #noorderon>N/A</ng-template>  
+                                   
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="direct">
-                                    <h6>Order Number:</h6> {{res.TransactionID}}
+                                    <h6>Order Number:</h6> 
+                                    <ng-container *ngIf="res.TransactionID;else nopaymenton"> <span>{{res.TransactionID}}</span></ng-container>
+                                    <ng-template #nopaymenton>N/A</ng-template> 
+                                    
                                     <span></span>
                                 </div>
                             </div>
@@ -44,14 +49,29 @@
                                 <img width="30px" class="me-2" src="assets/images/mover.png" /> 
                                 {{res.Service}} and {{res.Labour}}
                             </div></div>
-                            <div class="col-md-6"><div class="direct text-danger">
+                            <!-- <div class="col-md-6"><div class="direct text-danger">
                                 <img width="30px" class="me-2" src="assets/images/truck.png" />
-                                {{res.AnyAdvanceAmount}}/hr
-                            </div></div>
+                                <h6>Advance Amount: </h6> 
+                                <ng-container *ngIf="res.AnyAdvanceAmount > 0;else noamount">{{res.AnyAdvanceAmount}}/hr</ng-container>
+                                <ng-template #noamount>N/A</ng-template>                               
+                            </div>
+                            </div> -->
+                            <div class="col-md-6"><div class="direct text-danger">                               
+                                <img width="30px" class="me-2" src="assets/images/truck.png" />
+                                <h6>Service Price: </h6> 
+                                <ng-container *ngIf="res.ServicePrice > 0;else noServicePrice">{{res.ServicePrice}}/hr</ng-container>
+                                <ng-template #noServicePrice>N/A</ng-template>                               
+                            </div>
+                            </div>
                         </div>
                         <div class="row align-items-center">
-                            <div class="col-md-6"><div class="direct"><h6>Order Paid</h6></div></div>
-                            <div class="col-md-6"><div class="direct text-danger">Total ${{res.AnyAdvanceAmount}}</div></div>
+                            <div class="col-md-6"><div class="direct"><h6>
+                                <ng-container *ngIf="res.AnyAdvanceAmount > 0;else notpaid">Order Paid</ng-container>
+                                <ng-template #notpaid>Order Pending</ng-template></h6></div></div>
+                            <div class="col-md-6"><div class="direct text-danger">
+                                <h6>Total: </h6> 
+                                <ng-container *ngIf="res.ServicePrice > 0;else totalAmnt">${{res.ServicePrice/2}}</ng-container>
+                                <ng-template #totalAmnt>N/A</ng-template></div></div>
                         </div>
                     </div>
                 </div>

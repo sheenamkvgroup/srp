@@ -1,8 +1,7 @@
-<section class="book-move pb-5" *ngFor="let orderdetail of strIntoObj">
-
+<section class="book-move pb-5" *ngFor="let order of mapper">
     <div class="container">
         <div class="mt-5 text-center" >
-            <h5>Thank You {{orderdetail.Name}}</h5>
+            <h5>Thank You {{order.Name}}</h5>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
             when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
@@ -15,10 +14,10 @@
                     <div class="col-md-3 d-flex">
                         <div class="box">
                             <div class="up">
-                                <h5 class="mb-0">Order ID <br>QOB {{orderdetail.tb_PremiumQuoteIDPK}}</h5>
+                                <h5 class="mb-0">Order ID <br>QOB {{order.tb_PremiumQuoteIDPK}}</h5>
                             </div>
                             <div class="down">
-                                <h4 class="mb-0">{{orderdetail.Dated}}</h4>
+                                <h4 class="mb-0">{{order.Dated}}</h4>
                             </div>
                         </div>
                     </div>
@@ -26,55 +25,55 @@
                         <div class="row pt-3 px-2 mx-0">
                             <div class="col-sm-6 col-lg-4">
                                 <h6>Full Name</h6>
-                                <p>{{orderdetail.Name}}</p>
+                                <p>{{order.Name}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>Contact Number</h6>
-                                <p>{{orderdetail.Mobile}}</p>
+                                <p>{{order.Mobile}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>Email Address</h6>
-                                <p>{{orderdetail.Email}}</p>
+                                <p>{{order.Email}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>I am shifting my</h6>
-                                <p>{{orderdetail.MoveType}}</p>
+                                <p>{{order.MoveType}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>Moving</h6>
-                                <p>{{orderdetail.Local_Interstate}}</p>
+                                <p>{{order.Local_Interstate}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>From</h6>
-                                <p>{{orderdetail.pickUp}}</p>
+                                <p>{{order.pickUp}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>To</h6>
-                                <p>{{orderdetail.dropOff}}</p>
+                                <p>{{order.dropOff}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>No of bedrooms</h6>
-                                <p>{{orderdetail.NoOfBedrooms}}</p>
+                                <p>{{order.NoOfBedrooms}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>Time Slot</h6>
-                                <p>{{orderdetail.TimeSlot}}</p>
+                                <p>{{order.TimeSlot}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>Stairs</h6>
-                                <p>{{orderdetail.Stairs}}</p>
+                                <p>{{order.Stairs}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>Lift</h6>
-                                <p>{{orderdetail.Lifts}}</p>
+                                <p>{{order.Lifts}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>Service</h6>
-                                <p>{{orderdetail.Service}}</p>
+                                <p>{{order.Service}}</p>
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <h6>Hire labour</h6>
-                                <p>{{orderdetail.Labour}}</p>
+                                <p>{{order.Labour}}</p>
                             </div>
                         </div>
                     </div>
@@ -82,20 +81,283 @@
             </div>
 
             <div class="grey-box">
-                <div class="sumup mb-4">
+            <div class="sumup mb-4">
                 <h5 _ngcontent-ept-c70="" class="text-center mb-4">Selected Items</h5>
-                <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let item of strIntoObj2 | keyvalue">
-                            {{item.key}} {{item.value}}
-                            <!-- <div class="row box">
-                                <label for="items" class="col-9 col-form-label"> 
-                                    <img alt="items" src="item.icon">{{item.name}}
-                                </label>
-                                <div class="col-3">
-                                    <h5>{{item.qty}}</h5>
-                                </div>
-                            </div> -->
+                <div class="row" *ngFor="let data of showData">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> Single Bed
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.single_bed}}</h5>
+                            </div>
                         </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> drawers
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.drawers}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> microwave
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.microwave}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> double bed
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.double_bed}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> TV (Plasma/CD)
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.tv}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> stools
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.stools}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> queen bed
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.queen_bed}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> coffee table
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.coffee_table}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> dishwasher
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.dishwasher}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> king bed
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.king_bed}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> cabinet
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.cabinet}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> washing machine
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.washing_machine}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> bedside tables
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.bedside_tables}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> piano
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.piano}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> clothes dryer
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.clothes_dryer}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> dresser
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.dresser}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> refrigertor
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.refrigertor}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> toy box
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.toy_box}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> desk
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.desk}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> bookcase
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.bookcase}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> chairs
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.chairs}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> mirrors
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.mirrors}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> singleseater
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.singleseater}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> twoseater
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.twoseater}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="row box">
+                            <label for="items" class="col-9 col-form-label"> threeseater
+                                <!-- <img alt="items" src="item.icon"> -->
+                            </label>
+                            <div class="col-3">
+                                <h5>{{data.threeseater}}</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 </div>
                 <div class="table-responsive pay-table">
@@ -110,19 +372,20 @@
                     <tbody>
                         <tr>
                             <td><img width="30px" class="me-2" src="assets/images/mover.png" /> Men</td>
-                            <td>{{orderdetail.Labour}}</td>                               
+                            <td>{{order.Labour}}</td>                               
                         </tr>
                         <tr>
                             <td><img width="30px" class="me-2" src="assets/images/truck.png" /> Truck</td>
-                            <td>{{orderdetail.Service}}</td>                               
+                            <td>{{order.Service}}</td>                               
                         </tr>
                     </tbody>
-                    <!-- <tfoot>
+                    <tfoot>
                         <tr>
-                            <td >Total Price</td>
-                            <td [innerHTML]="htmlPrice"></td>
+                            <td >Advance Price</td>
+                            <ng-container *ngIf="order.ServicePrice > 0;else totalAmnt"><td>${{order.ServicePrice/2}}</td></ng-container>
+                            <ng-template #totalAmnt>N/A</ng-template>                            
                         </tr>
-                    </tfoot> -->
+                    </tfoot>
                     </table>
                     
                 </div>

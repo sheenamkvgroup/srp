@@ -25,10 +25,8 @@ export class Orderdetail {
   totalPrice:any;
   myValue:any;
   QuoteId:any;
+  tb_PremiumQuoteIDPK: any;
 
-  s=null;
-
-  
   options = [
     { name: "Home", value: "Home" },
     { name: "Office", value: "Office" },
@@ -121,7 +119,7 @@ itemsArray:any=[
     {itemID: 25,icon: "assets/images/three-seater.png",name: "3 Seater",qty: 0}
 
   ];
-
+ 
   inc(item){
     console.log(item);
     item.qty = item.qty+1;

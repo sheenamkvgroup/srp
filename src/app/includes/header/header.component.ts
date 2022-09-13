@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+import {RouterModule} from '@angular/router';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

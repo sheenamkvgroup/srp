@@ -35,20 +35,20 @@ export class LoginComponent implements OnInit {
        var sessionValueEmail = sessionStorage.getItem("eml");
        
        var formData = new FormData();
-       console.debug(sessionValueEmail+'---'+sessionValuePassword);       
+       //console.debug(sessionValueEmail+'---'+sessionValuePassword);       
        formData.append('email',sessionValueEmail);  
        formData.append('password',sessionValuePassword);       
     
        this.getData.checkLoginApi(formData).subscribe((data)=>{ 
         
           var myObject = JSON.stringify(data);
-          console.log("stringfyData-"+myObject);   
+         // console.log("stringfyData-"+myObject);   
           var str = myObject; // your response in a string
           var parsed = JSON.parse(str);
           var user = parsed[0];   
-          console.log(user.name);  
-          console.log(user.email); 
-          console.log(user.password);
+          //console.log(user.name);  
+          //console.log(user.email); 
+          //console.log(user.password);
           
         if(this.login.email == user.email && this.login.password == user.password){     
           sessionStorage.setItem("username",user.name);
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("useremail",user.email);
           var sessionValueEmail = sessionStorage.getItem("useremail");
           this.router.navigateByUrl('/');
-          console.log('Session-'+sessionValueName);
+          //console.log('Session-'+sessionValueName);
         }else {
           alert("Invalid credentials, Try again!");
         } 

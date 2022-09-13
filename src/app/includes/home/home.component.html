@@ -17,7 +17,7 @@
                             <div class="row box">
                                 <label for="inputName" class="col-sm-4 col-md-5 col-form-label">Full Name</label>
                                 <div class="col-sm-8 col-md-7">
-                                    <input 
+                                    <input
                                         type="text"
                                         value="{{home.name}}"
                                         name="name" 
@@ -139,7 +139,7 @@
                             <div class="row box">
                                 <label for="selectedMoving" class="col-sm-4 col-md-5 col-form-label">Moving</label>
                                 <div class="col-sm-8 col-md-7">
-                                   <select
+                                   <!-- <select
                                     class="form-select"
                                     id="inputMoving"
                                     [(ngModel)]="home.selectedMoving" 
@@ -149,7 +149,24 @@
                                         <option *ngFor="let option of home.optionsM">
                                           {{option.name}}
                                         </option>
-                                    </select>
+                                    </select> -->
+                                    <ngx-select
+
+                                            name="selectedMoving"
+
+                                            [(ngModel)]="home.selectedMoving"
+
+                                            [allowClear]="false"
+
+                                            [items]="items"
+
+                                            optionValueField="optionId"
+
+                                            optionTextField="optionTitle"
+
+                                            placeholder="Select">
+
+                                        </ngx-select>
                                 </div>
                             </div>
                         </div>
@@ -265,6 +282,7 @@
                                      class="form-select" 
                                      id="city" 
                                      [(ngModel)]="home.city" 
+                                     (change)="onChangeCity($event)"
                                      name="city" 
                                      required>
                                          <option value="undefined" disabled selected>Select</option>
@@ -275,6 +293,25 @@
                                  </div>
                              </div>
                          </div>
+                         <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="row box">
+                                <label for="HireLabour" class="col-sm-8 col-form-label">Hire Labour</label>
+                                <div class="col-sm-4">
+                                   <select
+                                    class="form-select"
+                                    id="HireLabour"
+                                    [(ngModel)]="home.selectedLabour"
+                                    name="labour"
+                                    (change)="onChangeLabour($event)"
+                                    required>
+                                    <option value="undefined" disabled selected>Select</option>
+                                    <option *ngFor="let option of home.optionsH">
+                                        {{option.name}}
+                                    </option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
                          <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="row box">
                                  <label for="Service" class="col-sm-8 col-form-label">Service</label>
@@ -294,27 +331,7 @@
                                  </div>
                              </div>
                          </div>
-                         <div class="col-sm-12 col-md-6 col-lg-4" [ngClass]="hideOrShow()">
-                             <div class="row box">
-                                 <label for="HireLabour" class="col-sm-8 col-form-label">Hire Labour</label>
-                                 <div class="col-sm-4">
-                                    <select
-                                     class="form-select"
-                                     id="HireLabour"
-                                     [(ngModel)]="home.selectedLabour"
-                                     name="labour"
-                                     (change)="onChangeLabour($event)"
-                                     required>
-                                     <option value="undefined" disabled selected>Select</option>
-                                     <option *ngFor="let option of home.optionsH">
-                                         {{option.name}}
-                                     </option>
-                                 </select>
-                                 </div>
-                             </div>
-                         </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-4">
+                         <div class="col-sm-12 col-md-6 col-lg-4">
                            <div class="row box">
                                 <label for="NumberOfBedroom" class="col-sm-8 col-form-label">No. Of Bedroom</label>
                                 <div class="col-sm-4">
@@ -390,12 +407,13 @@
                                 </div>
                             </div>
                         </div>
-
+                       
+                       <input type="hidden" [(ngModel)]="home.calculatedPrice" name="calculatedPrice" value="{{this.calculatedPrice}}">
                         <div class="sumup mt-2">
                             <h6 class="text-center"><span id="appendTxt"></span></h6>
                             <h5 class="text-center mt-3 mb-4">Select List of Items</h5>
                             <div class="row">
-                                
+                        
                                 <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let item of home.itemsArray">
                                     <div class="row box">
                                         <label for="items" class="col-9 col-form-label"> 
@@ -442,9 +460,6 @@
                                         </div>                        
                                     </div>
                                 </div>
-
-                                <input type="hidden" [(ngModel)]="home.myValue" name="calculatedPrice" value="{{this.myValue}}">          
-                               
                             </div>
                         </div>
                     </div>
@@ -454,7 +469,7 @@
             <div *ngIf="step == 3" class="stepB">
                 <div class="current_order">
                     <h6>Current Order</h6>
-                    <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid=QOB{{this.myQuoteId}}&amount={{this.totalPrice}}"><button 
+                    <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid=QOB{{this.myQuoteId}}&amount={{this.calculatedPrice}}"><button 
                         type="button" 
                         class="btn theme-btn"
                         >Pay Now</button></a>
@@ -465,6 +480,7 @@
                             <div class="box">
                                 <div class="up">
                                     <h5 class="mb-0">Order ID <br>QOB{{this.myQuoteId}}</h5>
+                                    
                                 </div>
                                 <div class="down">
                                     <h4 class="mb-0">{{home.date | date: 'dd/MM/yyyy'}}</h4>
@@ -578,7 +594,9 @@
                         
                     </div>
                     <h6 class="text-center mt-4" [innerHTML]="htmlMsg"></h6>
-                    <div class="form-text text-center">By Clicking Pay Now button I agree to Pay the Amount and Accept all terms & conditions of the Company</div>
+                    <div class="form-text text-center">
+                        <input type="checkbox" value="1" checked="checked" required="required" readonly/>
+                        By Clicking Pay Now button I agree to Pay the Amount and Accept all terms & conditions of the Company</div>
                 </div>
 
 
@@ -597,17 +615,17 @@
                 type="submit" 
                 *ngIf="step == 1"
                 class="btn theme-btn"             
-                [disabled]="contactForm.invalid"                
+                              
                 >Proceed</button>
 
                 <button 
                 type="submit" 
                 class="btn theme-btn"
-                *ngIf="step == 2"
-                [disabled]="contactForm.invalid"
+                *ngIf="step == 2"               
+                
                 >Confirm Your Move</button>
 
-                <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid=QOB{{this.myQuoteId}}&amount={{this.totalPrice}}">
+                <a href="https://www.cbdmovers.com.au/removalists/zoiac-online-booking/paynow.php?bookingid=QOB{{this.myQuoteId}}&amount={{this.calculatedPrice}}">
                     <button
                     type="button" 
                     class="btn theme-btn"

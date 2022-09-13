@@ -26,7 +26,7 @@ export class Home {
   myValue:any;
   QuoteId:any;
 
-  s=null;
+  //s=null;
 
   
   options = [
@@ -90,7 +90,7 @@ itemsArray:any=[
     {itemID: 3,icon: "assets/images/oven.png",name: "microwave",qty: 0},
 
     {itemID: 4,icon: "assets/images/double-bed.png",name: "double bed",qty: 0},
-    {itemID: 5,icon: "assets/images/tv.png",name: "TV (Plasmal/CD)",qty: 0},
+    {itemID: 5,icon: "assets/images/tv.png",name: "tv",qty: 0},
     {itemID: 6,icon: "assets/images/stool.png",name: "stools",qty: 0},
 
     {itemID: 7,icon: "assets/images/queen-bed.png",name: "queen bed",qty: 0},
@@ -116,11 +116,12 @@ itemsArray:any=[
 
     {itemID: 22,icon: "assets/images/mirrors.png",name: "mirrors",qty: 0},
 
-    {itemID: 23,icon: "assets/images/single-seater.png",name: "single seater",qty: 0},
-    {itemID: 24,icon: "assets/images/two-seater.png",name: "2 Seater",qty: 0},
-    {itemID: 25,icon: "assets/images/three-seater.png",name: "3 Seater",qty: 0}
+    {itemID: 23,icon: "assets/images/single-seater.png",name: "singleseater",qty: 0},
+    {itemID: 24,icon: "assets/images/two-seater.png",name: "twoseater",qty: 0},
+    {itemID: 25,icon: "assets/images/three-seater.png",name: "threeseater",qty: 0}
 
   ];
+  calculatedPrice: string | Blob;
 
   inc(item){
     console.log(item);
